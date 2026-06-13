@@ -1,0 +1,15 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Work output (generated posts/renders)
+out/
+exports/
+_test/
+*.local.*
+
+# OS
+.DS_Store
+Thumbs.db

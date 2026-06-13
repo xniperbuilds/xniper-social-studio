@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json.schemastore.org/claude-code-plugin.json",
+  "name": "xniper-social-studio",
+  "description": "Design premium, scroll-stopping social media graphics from a text brief and export them to exact-size PNGs. Instagram, TikTok, LinkedIn, X, YouTube, Pinterest, Facebook.",
+  "version": "1.0.0",
+  "author": {
+    "name": "XniperBuilds"
+  },
+  "homepage": "https://github.com/xniperbuilds/xniper-social-studio",
+  "repository": "https://github.com/xniperbuilds/xniper-social-studio",
+  "license": "MIT",
+  "keywords": [
+    "social-media",
+    "design",
+    "instagram",
+    "carousel",
+    "graphics"
+  ]
+}

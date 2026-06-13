@@ -1,0 +1,42 @@
+{
+  "_note": "Template registry. 'file' is relative to templates/. Tokens are mustache-style {{TOKEN}}, filled by new_post.py. All templates are responsive to the --size flag (the .canvas reads --w/--h). Hand-build for ideas outside these archetypes.",
+  "tokens": {
+    "content": ["EYEBROW", "HEADLINE", "SUBHEAD", "CTA", "HANDLE", "INDEX", "BIGWORD"],
+    "style": ["W", "H", "FONTS_LINK", "DISPLAY", "BODY", "BG", "SURFACE", "TEXT", "MUTED", "ACCENT", "ACCENT2", "GRADIENT"],
+    "notes": "HEADLINE supports \\n for line breaks. Empty content tokens render blank — omit a template if you don't need its slots, or hand-edit."
+  },
+  "templates": [
+    {
+      "id": "quote-bold",
+      "file": "quote-bold.html",
+      "name": "Bold Statement / Quote",
+      "use": "quotes, hot takes, one-line value props, carousel covers, hooks",
+      "best_formats": ["1080x1350", "1080x1080", "1080x1920"],
+      "tags": ["quote", "statement", "hook", "cover", "bold"]
+    },
+    {
+      "id": "announcement",
+      "file": "announcement.html",
+      "name": "Announcement / Launch / Promo",
+      "use": "new drops, launches, sales, events — has eyebrow pill + CTA button",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["announcement", "launch", "promo", "sale", "cta"]
+    },
+    {
+      "id": "tip-card",
+      "file": "tip-card.html",
+      "name": "Tip / Listicle Slide",
+      "use": "how-to steps, numbered tips, carousel body slides",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["tip", "listicle", "howto", "carousel", "steps"]
+    },
+    {
+      "id": "stat-card",
+      "file": "stat-card.html",
+      "name": "Stat / Big Number",
+      "use": "a single impressive metric as the hero",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["stat", "number", "data", "metric", "proof"]
+    }
+  ]
+}

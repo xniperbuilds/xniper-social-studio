@@ -1,0 +1,101 @@
+{
+  "_note": "Distinctive display + clean body pairings, all on Google Fonts. 'link' is the ready <link href>. 'display'/'body' are the CSS font-family names. Never default to Inter/Arial/Roboto as display.",
+  "fonts": [
+    {
+      "id": "grotesk-mono",
+      "name": "Space Grotesk + IBM Plex Mono",
+      "tags": ["tech", "modern", "bold", "saas", "gaming"],
+      "display": "Space Grotesk",
+      "body": "IBM Plex Mono",
+      "link": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+    },
+    {
+      "id": "anton-inter",
+      "name": "Anton + Inter Tight",
+      "tags": ["bold", "loud", "sports", "announcement", "thumbnail"],
+      "display": "Anton",
+      "body": "Inter Tight",
+      "link": "https://fonts.googleapis.com/css2?family=Anton&family=Inter+Tight:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "fraunces-grotesk",
+      "name": "Fraunces + Space Grotesk",
+      "tags": ["editorial", "luxury", "elegant", "fashion", "premium"],
+      "display": "Fraunces",
+      "body": "Space Grotesk",
+      "link": "https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,600;9..144,700&family=Space+Grotesk:wght@400;500&display=swap"
+    },
+    {
+      "id": "unbounded-dm",
+      "name": "Unbounded + DM Sans",
+      "tags": ["playful", "bold", "creator", "vibrant", "youth"],
+      "display": "Unbounded",
+      "body": "DM Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Unbounded:wght@600;700;800&family=DM+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "archivo-figtree",
+      "name": "Archivo Black + Figtree",
+      "tags": ["bold", "modern", "marketing", "saas", "corporate"],
+      "display": "Archivo Black",
+      "body": "Figtree",
+      "link": "https://fonts.googleapis.com/css2?family=Archivo+Black&family=Figtree:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "syne-jakarta",
+      "name": "Syne + Plus Jakarta Sans",
+      "tags": ["creative", "design", "agency", "modern", "art"],
+      "display": "Syne",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Syne:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "instrument-jakarta",
+      "name": "Instrument Serif + Plus Jakarta Sans",
+      "tags": ["editorial", "elegant", "minimal", "luxury", "calm"],
+      "display": "Instrument Serif",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "clash-sora",
+      "name": "Bricolage Grotesque + Sora",
+      "tags": ["modern", "tech", "bold", "saas", "startup"],
+      "display": "Bricolage Grotesque",
+      "body": "Sora",
+      "link": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,600;12..96,700;12..96,800&family=Sora:wght@400;500&display=swap"
+    },
+    {
+      "id": "bebas-jakarta",
+      "name": "Bebas Neue + Plus Jakarta Sans",
+      "tags": ["bold", "sports", "fitness", "loud", "thumbnail", "poster"],
+      "display": "Bebas Neue",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "playfair-jakarta",
+      "name": "Playfair Display + Plus Jakarta Sans",
+      "tags": ["luxury", "elegant", "wedding", "beauty", "classic", "editorial"],
+      "display": "Playfair Display",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "familjen-dm",
+      "name": "Familjen Grotesk + DM Sans",
+      "tags": ["clean", "modern", "wellness", "friendly", "app"],
+      "display": "Familjen Grotesk",
+      "body": "DM Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Familjen+Grotesk:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "sora-mono",
+      "name": "Sora + Space Mono",
+      "tags": ["tech", "developer", "minimal", "mono", "startup"],
+      "display": "Sora",
+      "body": "Space Mono",
+      "link": "https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    }
+  ]
+}
