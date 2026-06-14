@@ -36,7 +36,7 @@ DEFAULT_PALETTE = "ocean-deep"
 DEFAULT_FONT = "archivo-figtree"
 
 # Inline tags allowed inside copy (everything else is escaped for safety).
-ALLOWED_TAGS = ("<em>", "</em>", "<strong>", "</strong>", "<br>")
+ALLOWED_TAGS = ("<em>", "</em>", "<strong>", "</strong>", "<mark>", "</mark>", "<br>")
 
 
 def load(name):

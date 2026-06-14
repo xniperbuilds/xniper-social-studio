@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.0.1"
+  version: "1.1.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -25,6 +25,12 @@ or a description — you ship the finished image file.
 
 The bar is simple: **if it could pass for a Behance / Awwwards-grade brand post,
 ship it. If it looks like a default AI template, throw it out and redo it.**
+
+**Variety is the product.** Two posts must never look like the same template with
+the words swapped. Before building, sample a distinct *aesthetic direction* from
+the library (`data/directions.json` via `scripts/ideate.py`) — 24 directions ×
+24 palettes × 19 font pairings × layouts × motifs = tens of thousands of looks.
+**Never reuse the same direction two posts in a row.**
 
 ---
 
@@ -47,10 +53,10 @@ bleed/CMYK, or actually posting/scheduling to a platform.
 
 ```
 1. READ the brief   →  platform · format · topic · brand · vibe · #slides
-2. DESIGN READ      →  declare one line: art direction + palette + type
+2. PICK A DIRECTION →  scripts/ideate.py  (sample distinct aesthetics; never repeat the last)
 3. PULL the system  →  scripts/search.py  (palette + font pairing + template + hook)
-4. BUILD HTML       →  scripts/new_post.py  OR hand-build from a template
-5. RENDER PNG       →  scripts/render.py  (exact px, 2x, waits for fonts)
+4. BUILD HTML       →  fill a template AND push it to the direction (motifs), or hand-build
+5. RENDER PNG       →  scripts/render.py  (exact px, 2x, awaits fonts)
 6. QA + iterate     →  open the PNG, check the Pre-Flight list, fix, re-render
 ```
 
@@ -84,13 +90,20 @@ Extract, and only ask if genuinely missing:
 - **Vibe words** → "bold", "minimal", "luxury", "playful", "techy", "editorial".
 - **Carousel?** → how many slides; plan a cover + body + CTA arc.
 
-## Step 2 — Design Read (state it before building)
+## Step 2 — Pick a direction, then state the Design Read
 
-One line, out loud, before any HTML:
+Sample distinct aesthetic directions and commit to ONE (different from your last):
 
-> *"Reading this as a `<format>` for `<audience>`, `<vibe>` direction — `<palette name>` palette, `<display font>` / `<body font>`, `<layout archetype>`."*
+```bash
+python "$SKILL/scripts/ideate.py" "<brief>" -n 6     # 6 distinct directions, fresh each run
+python "$SKILL/scripts/ideate.py" "<brief>" --direction riso-print   # lock a look, vary the rest
+```
 
-This forces an intentional direction instead of a reflex template. Commit to it.
+Then one line, out loud, before any HTML:
+
+> *"Reading this as a `<format>` for `<audience>` in the **`<direction>`** direction — `<palette>` palette, `<display font>` / `<body font>`, `<layout>`, with `<motifs>`."*
+
+`data/directions.json` = 24 movements; `reference/directions.md` = how to build each + the **Motif Cookbook** (grain, highlighter, sketch-underline, connector-dots, glass, etc.). Commit fully and execute with precision.
 
 ## Step 3 — Pull the design system
 
@@ -164,8 +177,9 @@ the PNG is the deliverable.
 This is what separates this skill from generic output. Full detail in
 `reference/design-rules.md`; the load-bearing rules:
 
-1. **Commit to ONE bold art direction.** Refined-minimal or loud-maximal both
-   win — timid middle-ground loses. Decide, then execute with precision.
+1. **Different every time, committed every time.** Sample a fresh direction
+   (`ideate.py`) — never repeat the last. Then commit fully: refined-minimal or
+   loud-maximal both win, timid middle-ground loses.
 2. **Distinctive type only.** Never Arial / Inter / Roboto / system as the
    display face. Pair a characterful display font with a clean body font
    (`data/fonts.json`). Headlines: tight tracking, heavy weight, big.
@@ -225,6 +239,7 @@ Plan the arc, don't just repeat a template:
   (don't stamp the identical layout 6×).
 - **Last slide = CTA / follow / save.**
 - Lock palette + fonts + margins across all slides; vary only the layout.
+- One direction per set; rotate to a NEW direction next post (on a posting cadence, do a full direction overhaul every few posts so the feed never goes samey).
 
 Generate each slide as its own HTML, render the folder with `--batch`.
 
@@ -236,13 +251,17 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 |---|---|
 | `reference/platforms.md` | Every size + safe zones, per platform/format |
 | `reference/design-rules.md` | The full premium / anti-slop ruleset |
+| `reference/directions.md` | 24 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/recipes.md` | Layout blueprints per post archetype |
 | `reference/copywriting.md` | Hook, headline & CTA formulas |
-| `data/palettes.json` | Curated premium palettes (mood/industry tagged) |
-| `data/fonts.json` | Google-Font display+body pairings |
+| `data/directions.json` | 24 aesthetic directions — the variety engine |
+| `data/palettes.json` | 24 curated premium palettes (mood/industry tagged) |
+| `data/fonts.json` | 19 Google-Font display+body pairings |
+| `data/motifs.json` | Decorative motif index (snippets in directions.md) |
 | `data/templates.json` | Template registry (id → file, format, use) |
 | `data/hooks.json` | Viral hook library by category |
 | `data/brand-presets.json` | Ready brand tokens + a custom slot |
+| `scripts/ideate.py` | Sample distinct aesthetic directions (the variety engine) |
 | `scripts/search.py` | Recommend / search the design system |
 | `scripts/new_post.py` | Fill a template with content + brand → HTML |
 | `scripts/render.py` | HTML → exact-size PNG (Playwright) |

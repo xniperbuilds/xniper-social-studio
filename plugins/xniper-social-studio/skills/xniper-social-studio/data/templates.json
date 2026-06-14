@@ -3,7 +3,7 @@
   "tokens": {
     "content": ["EYEBROW", "HEADLINE", "SUBHEAD", "CTA", "HANDLE", "INDEX", "BIGWORD"],
     "style": ["W", "H", "FONTS_LINK", "DISPLAY", "BODY", "BG", "SURFACE", "TEXT", "MUTED", "ACCENT", "ACCENT2", "GRADIENT"],
-    "notes": "HEADLINE supports \\n for line breaks. Empty content tokens render blank — omit a template if you don't need its slots, or hand-edit."
+    "notes": "HEADLINE supports \\n for line breaks and inline <em>/<strong>/<mark> (mark = highlighter). Empty content tokens render blank. Templates are STARTING POINTS — pick an aesthetic direction (data/directions.json + scripts/ideate.py) and push the template toward it with motifs from reference/directions.md, or hand-build for directions no template covers."
   },
   "templates": [
     {
@@ -37,6 +37,22 @@
       "use": "a single impressive metric as the hero",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["stat", "number", "data", "metric", "proof"]
+    },
+    {
+      "id": "editorial-vintage",
+      "file": "editorial-vintage.html",
+      "name": "Editorial Vintage",
+      "use": "warm cream-paper editorial: serif headline, orange accent, sketch underline + doodle (direction: editorial-vintage)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["editorial", "warm", "illustrated", "storytelling", "quote", "vintage", "premium"]
+    },
+    {
+      "id": "blueprint-diagram",
+      "file": "blueprint-diagram.html",
+      "name": "Blueprint / Diagram",
+      "use": "technical grid-paper: bold headline with highlighter, connector dots, mono label (direction: blueprint-diagram)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["technical", "educational", "diagram", "dev", "system-design", "tip", "howto"]
     }
   ]
 }

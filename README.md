@@ -8,20 +8,23 @@ Most AI design output looks like... AI design output: flat, centered, purple-on-
 
 ## Showcase
 
-Four built-in templates — each shown with a different palette + font pairing from the library (**15 palettes, 12 pairings**), all generated from one brief and rendered straight to PNG:
+A **24-direction variety engine** (24 palettes · 19 font pairings · motif cookbook) plus six starter templates — every post a different look. Samples below, each from one brief, rendered straight to PNG:
 
 <p align="center">
-  <img src="assets/quote-bold-1080x1350.png" width="24%" alt="Bold statement template">
-  <img src="assets/announcement-1080x1080.png" width="24%" alt="Announcement template">
-  <img src="assets/tip-card-1080x1350.png" width="24%" alt="Tip / listicle template">
-  <img src="assets/stat-card-1080x1080.png" width="24%" alt="Stat / big number template">
+  <img src="assets/editorial-vintage-1080x1350.png" width="32%" alt="Editorial vintage direction">
+  <img src="assets/blueprint-diagram-1080x1350.png" width="32%" alt="Blueprint / diagram direction">
+  <img src="assets/quote-bold-1080x1350.png" width="32%" alt="Bold statement template">
+  <img src="assets/announcement-1080x1080.png" width="32%" alt="Announcement template">
+  <img src="assets/tip-card-1080x1350.png" width="32%" alt="Tip / listicle template">
+  <img src="assets/stat-card-1080x1080.png" width="32%" alt="Stat / big number template">
 </p>
 
 ---
 
 ## What it does
 
-- **Brief → PNG pipeline.** You describe the post; it picks a palette + font pairing + layout, builds real HTML/CSS, and renders it to an exact-size PNG (2× / retina-crisp).
+- **A variety engine, not a template.** 24 distinct aesthetic *directions* × 24 palettes × 19 font pairings × layouts × motifs — `ideate.py` samples fresh combinations so two posts never look alike (editorial-vintage, neo-brutalism, riso-print, blueprint-diagram, dark-luxe, vaporwave, and more).
+- **Brief → PNG pipeline.** You describe the post; it picks a direction + palette + font pairing + layout, builds real HTML/CSS, and renders it to an exact-size PNG (2× / retina-crisp).
 - **Premium by default.** A baked-in anti-slop ruleset: distinctive type, one locked accent, real depth (gradient mesh, grain, glow, layered shapes), brutal hierarchy. No generic templates.
 - **Every platform & format.** Exact pixel sizes and safe zones for feed posts, portraits, stories, reel covers, carousels, thumbnails and pins.
 - **Carousels done right.** Hook → points → CTA arc, one consistent system, varied layouts per slide.

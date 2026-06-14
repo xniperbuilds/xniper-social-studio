@@ -96,6 +96,62 @@
       "display": "Sora",
       "body": "Space Mono",
       "link": "https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&family=Space+Mono:wght@400;700&display=swap"
+    },
+    {
+      "id": "dm-serif-sans",
+      "name": "DM Serif Display + DM Sans",
+      "tags": ["editorial", "elegant", "luxury", "vintage", "classic"],
+      "display": "DM Serif Display",
+      "body": "DM Sans",
+      "link": "https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap"
+    },
+    {
+      "id": "bigshoulders-public",
+      "name": "Big Shoulders Display + Public Sans",
+      "tags": ["poster", "industrial", "bold", "condensed", "loud"],
+      "display": "Big Shoulders Display",
+      "body": "Public Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Public+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "libre-caslon-sans",
+      "name": "Libre Caslon Display + Inter Tight",
+      "tags": ["luxury", "editorial", "classic", "deco", "elegant"],
+      "display": "Libre Caslon Display",
+      "body": "Inter Tight",
+      "link": "https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Inter+Tight:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "spectral-jakarta",
+      "name": "Spectral + Plus Jakarta Sans",
+      "tags": ["editorial", "literary", "calm", "wellness", "premium"],
+      "display": "Spectral",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Spectral:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "oswald-work",
+      "name": "Oswald + Work Sans",
+      "tags": ["condensed", "news", "sport", "bold", "poster"],
+      "display": "Oswald",
+      "body": "Work Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Work+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "jetbrains-tight",
+      "name": "JetBrains Mono + Inter Tight",
+      "tags": ["dev", "tech", "code", "mono", "terminal"],
+      "display": "JetBrains Mono",
+      "body": "Inter Tight",
+      "link": "https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@500;700;800&family=Inter+Tight:wght@400;500&display=swap"
+    },
+    {
+      "id": "bricolage-grotesque",
+      "name": "Bricolage Grotesque + Inter Tight",
+      "tags": ["modern", "editorial", "bold", "design", "kinetic"],
+      "display": "Bricolage Grotesque",
+      "body": "Inter Tight",
+      "link": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter+Tight:wght@400;500&display=swap"
     }
   ]
 }

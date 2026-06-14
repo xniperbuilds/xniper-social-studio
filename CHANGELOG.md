@@ -2,6 +2,18 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.1.0] — 2026-06-14
+### Added — the Variety Engine (every post a different look, never the same AI vibe)
+- `data/directions.json` — **24 distinct aesthetic directions** (editorial-vintage, bold-grotesk-grid, blueprint-diagram, sticker-doodle, poster-bold, swiss, neo-brutalism, glass-aurora, dark-luxe, neon-cyber, riso-print, memphis, y2k-chrome, vaporwave, magazine, kinetic-type, gradient-mesh, organic, art-deco, collage, mono-terminal, minimal-photo, bauhaus, corporate-clean).
+- `scripts/ideate.py` — combinatorial idea generator: sample N distinct directions for a brief (direction × palette × font × layout × motifs = tens of thousands of looks), fresh each run or `--seed` for reproducibility.
+- `reference/directions.md` — per-direction build notes + a **Motif Cookbook** of copy-paste CSS/SVG (grain, highlighter, sketch-underline, doodle-arrow, connector-dots, glass, halftone, scanlines, blob, chrome text, drop-cap, and more).
+- `data/motifs.json` — decorative motif index.
+- 2 new templates: `editorial-vintage` (cream paper + serif + sketch/doodle) and `blueprint-diagram` (grid paper + highlighter + connector dots). Now 6 templates.
+- +10 palettes (24 total) and +7 font pairings (19 total) to widen the combinatorial space.
+- `new_post.py` now also keeps inline `<mark>` (highlighter motif).
+### Changed
+- `SKILL.md` reframed around variety: pick a direction first, never repeat the last, rotate across a posting cadence; updated pipeline, resources, and Premium Standard.
+
 ## [1.0.1] — 2026-06-14
 ### Fixed
 - `render.py`: deterministic Chromium auto-install (no longer relies on matching Playwright's error wording); `document.fonts.ready` is now properly **awaited** so exports never capture a system-fallback font; batch mode continues past a single bad file and exits non-zero on any failure; bad `--size` now warns instead of being silently ignored.
