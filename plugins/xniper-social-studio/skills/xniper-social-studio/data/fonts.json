@@ -152,6 +152,150 @@
       "display": "Bricolage Grotesque",
       "body": "Inter Tight",
       "link": "https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,700;12..96,800&family=Inter+Tight:wght@400;500&display=swap"
+    },
+    {
+      "id": "boldonse-onest",
+      "name": "Boldonse + Onest",
+      "tags": ["bold", "experimental", "modern", "display", "brutalist"],
+      "display": "Boldonse",
+      "body": "Onest",
+      "link": "https://fonts.googleapis.com/css2?family=Boldonse&family=Onest:wght@400;500;600;700&display=swap"
+    },
+    {
+      "id": "gloock-hanken",
+      "name": "Gloock + Hanken Grotesk",
+      "tags": ["editorial", "luxury", "serif", "elegant", "magazine"],
+      "display": "Gloock",
+      "body": "Hanken Grotesk",
+      "link": "https://fonts.googleapis.com/css2?family=Gloock&family=Hanken+Grotesk:wght@400;500;600;700&display=swap"
+    },
+    {
+      "id": "bodoni-jakarta",
+      "name": "Bodoni Moda + Plus Jakarta Sans",
+      "tags": ["fashion", "luxury", "high-contrast", "editorial", "glam"],
+      "display": "Bodoni Moda",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,500;6..96,700;6..96,900&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "alfa-work",
+      "name": "Alfa Slab One + Work Sans",
+      "tags": ["poster", "slab", "bold", "loud", "retro"],
+      "display": "Alfa Slab One",
+      "body": "Work Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Alfa+Slab+One&family=Work+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "bungee-jakarta",
+      "name": "Bungee + Plus Jakarta Sans",
+      "tags": ["urban", "street", "poster", "playful", "loud"],
+      "display": "Bungee",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Bungee&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "monoton-mono",
+      "name": "Monoton + Space Mono",
+      "tags": ["retro", "neon", "y2k", "display", "funky"],
+      "display": "Monoton",
+      "body": "Space Mono",
+      "link": "https://fonts.googleapis.com/css2?family=Monoton&family=Space+Mono:wght@400;700&display=swap"
+    },
+    {
+      "id": "caprasimo-figtree",
+      "name": "Caprasimo + Figtree",
+      "tags": ["retro", "chunky", "friendly", "playful", "groovy"],
+      "display": "Caprasimo",
+      "body": "Figtree",
+      "link": "https://fonts.googleapis.com/css2?family=Caprasimo&family=Figtree:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "marcellus-jakarta",
+      "name": "Marcellus + Plus Jakarta Sans",
+      "tags": ["deco", "elegant", "classic", "luxury", "minimal"],
+      "display": "Marcellus",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Marcellus&family=Plus+Jakarta+Sans:wght@400;500;600&display=swap"
+    },
+    {
+      "id": "cormorant-jakarta",
+      "name": "Cormorant Garamond + Plus Jakarta Sans",
+      "tags": ["elegant", "wedding", "literary", "luxury", "beauty"],
+      "display": "Cormorant Garamond",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "newsreader-inter",
+      "name": "Newsreader + Inter Tight",
+      "tags": ["editorial", "news", "literary", "serif", "magazine"],
+      "display": "Newsreader",
+      "body": "Inter Tight",
+      "link": "https://fonts.googleapis.com/css2?family=Newsreader:opsz,wght@6..72,500;6..72,600;6..72,700&family=Inter+Tight:wght@400;500&display=swap"
+    },
+    {
+      "id": "geist-mono",
+      "name": "Geist + Geist Mono",
+      "tags": ["tech", "modern", "clean", "developer", "startup"],
+      "display": "Geist",
+      "body": "Geist Mono",
+      "link": "https://fonts.googleapis.com/css2?family=Geist:wght@400;600;700;800&family=Geist+Mono:wght@400;500&display=swap"
+    },
+    {
+      "id": "funnel-onest",
+      "name": "Funnel Display + Onest",
+      "tags": ["modern", "startup", "display", "saas", "clean"],
+      "display": "Funnel Display",
+      "body": "Onest",
+      "link": "https://fonts.googleapis.com/css2?family=Funnel+Display:wght@400;600;800&family=Onest:wght@400;500&display=swap"
+    },
+    {
+      "id": "fredoka-dm",
+      "name": "Fredoka + DM Sans",
+      "tags": ["playful", "rounded", "app", "kids", "friendly"],
+      "display": "Fredoka",
+      "body": "DM Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "baloo-jakarta",
+      "name": "Baloo 2 + Plus Jakarta Sans",
+      "tags": ["chunky", "rounded", "playful", "app", "bold"],
+      "display": "Baloo 2",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "shantell-dm",
+      "name": "Shantell Sans + DM Sans",
+      "tags": ["handwritten", "casual", "marker", "doodle", "friendly"],
+      "display": "Shantell Sans",
+      "body": "DM Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Shantell+Sans:wght@500;600;700&family=DM+Sans:wght@400;500&display=swap"
+    },
+    {
+      "id": "tektur-jetbrains",
+      "name": "Tektur + JetBrains Mono",
+      "tags": ["tech", "sci-fi", "condensed", "futuristic", "gaming"],
+      "display": "Tektur",
+      "body": "JetBrains Mono",
+      "link": "https://fonts.googleapis.com/css2?family=Tektur:wght@500;700;900&family=JetBrains+Mono:wght@400;500&display=swap"
+    },
+    {
+      "id": "krona-inter",
+      "name": "Krona One + Inter Tight",
+      "tags": ["bold", "retro", "label", "industrial", "poster"],
+      "display": "Krona One",
+      "body": "Inter Tight",
+      "link": "https://fonts.googleapis.com/css2?family=Krona+One&family=Inter+Tight:wght@400;500&display=swap"
+    },
+    {
+      "id": "caveat-jakarta",
+      "name": "Caveat + Plus Jakarta Sans",
+      "tags": ["handwritten", "notebook", "accent", "casual", "sketch"],
+      "display": "Caveat",
+      "body": "Plus Jakarta Sans",
+      "link": "https://fonts.googleapis.com/css2?family=Caveat:wght@500;600;700&family=Plus+Jakarta+Sans:wght@400;500&display=swap"
     }
   ]
 }

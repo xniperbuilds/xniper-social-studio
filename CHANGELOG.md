@@ -2,6 +2,15 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.3.0] — 2026-06-14
+### Added — purpose taxonomy + reference-grounded systems (master-plan phase 1)
+- **`data/categories.json` — 24 purpose categories** (hook-cover, listicle, feature-grid, step-by-step, comparison-vs, stat-number, benchmark-leaderboard, before-after, diagram-explainer, quote-statement, checklist, testimonial, announcement, promo-offer, value-prop, product-showcase, profile-intro, myth-bust, definition, timeline, recipe-card, faq-qa, tool-roundup, cta-outro). A template = **category × direction × role**.
+- **`reference/carousel-systems.md`** — distilled from studying real top-creator IG carousels: persistent chrome, the cover→content→recap→cta role arc, the icon+keyword content atom, palette discipline, proof-via-real-artifacts, depth devices, semantic icons, engagement mechanics, and the purpose×aesthetic matrix.
+- `ideate.py`: `--list-categories` and `--category <id>` (ideas that fit a purpose).
+- **+18 font pairings (37 total):** Boldonse, Gloock, Bodoni Moda, Alfa Slab One, Bungee, Monoton, Caprasimo, Marcellus, Cormorant Garamond, Newsreader, Geist, Funnel Display, Fredoka, Baloo 2, Shantell Sans, Tektur, Krona One, Caveat.
+- **2 new templates (10 total):** `comparison-vs` (dual glass panels + VS + payoff bar) and `feature-grid` (2×3 icon cards).
+> Phase 1 of the master plan (100+ templates / 20+ categories / 100+ fonts). Next phases mass-produce templates per category and continue fonts toward 100.
+
 ## [1.2.0] — 2026-06-14
 ### Added
 - **+8 aesthetic directions (32 total):** 3D-depth, isometric, claymorphism, grain-gradient, liquid-chrome, paper-craft, data-viz, sketch-notebook.

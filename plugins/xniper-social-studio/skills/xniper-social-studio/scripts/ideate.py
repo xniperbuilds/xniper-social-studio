@@ -129,6 +129,8 @@ def main():
     ap.add_argument("--seed", type=int, help="seed for reproducible output")
     ap.add_argument("--size", default="1080x1350", help="target size WxH")
     ap.add_argument("--direction", help="force a specific direction id (vary everything else)")
+    ap.add_argument("--category", help="bias ideas to a purpose category id (see --list-categories)")
+    ap.add_argument("--list-categories", action="store_true", help="list the purpose categories and exit")
     args = ap.parse_args()
 
     rng = random.Random(args.seed)  # seed=None -> fresh every run = endless ideas
@@ -145,8 +147,24 @@ def main():
         hooks = load("hooks.json", "hooks")
     except Exception:
         hooks = {}
+    try:
+        categories = load("categories.json", "categories")
+    except Exception:
+        categories = []
+    cat_by = {c["id"]: c for c in categories}
     pal_by = {p["id"]: p for p in palettes}
     font_by = {f["id"]: f for f in fonts}
+
+    if args.list_categories:
+        print("PURPOSE CATEGORIES  (template = category x direction x role)\n")
+        for c in categories:
+            print(f"  [{c['id']:<22}] {c['name']:<26} role:{c.get('role',''):<8} {c['purpose']}")
+        return
+
+    cat = cat_by.get(args.category) if args.category else None
+    if args.category and not cat:
+        print(f"ERROR: no category '{args.category}'. Try --list-categories.", file=sys.stderr)
+        sys.exit(1)
 
     # full-carousel plan: one locked direction across the whole set
     if args.carousel:
@@ -171,16 +189,21 @@ def main():
         chosen = chosen * args.n
     else:
         pool = directions[:]
+        if cat:
+            suited = set(cat.get("directions", []))
+            pool = [d for d in directions if d["id"] in suited] or directions[:]
         if q:
             # bias toward matches but keep variety: sort by score, then jitter
             pool.sort(key=lambda d: tag_score(d.get("tags", []), q) + rng.random(), reverse=True)
         else:
             rng.shuffle(pool)
-        chosen = pool[:args.n] if args.n <= len(pool) else pool + [rng.choice(directions) for _ in range(args.n - len(pool))]
+        chosen = pool[:args.n] if args.n <= len(pool) else pool + [rng.choice(pool) for _ in range(args.n - len(pool))]
 
     topic = args.query.strip() or "your topic"
     print("=" * 70)
     print(f"  {len(chosen)} DISTINCT DIRECTIONS for: {topic}")
+    if cat:
+        print(f"  Category: {cat['name']} ({cat['id']}) — {cat['purpose']}  [role: {cat.get('role','')}]")
     print(f"  (run again for a fresh set; --seed to lock; combos in the tens of thousands)")
     print("=" * 70)
 

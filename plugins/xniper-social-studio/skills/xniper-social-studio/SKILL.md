@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.2.0"
+  version: "1.3.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -97,7 +97,11 @@ Sample distinct aesthetic directions and commit to ONE (different from your last
 ```bash
 python "$SKILL/scripts/ideate.py" "<brief>" -n 6     # 6 distinct directions, fresh each run
 python "$SKILL/scripts/ideate.py" "<brief>" --direction riso-print   # lock a look, vary the rest
+python "$SKILL/scripts/ideate.py" --list-categories                  # 24 purpose categories
+python "$SKILL/scripts/ideate.py" "<brief>" --category comparison-vs # ideas that fit a purpose
 ```
+
+Pick by **purpose** as well as look: a template = **category × direction × role (cover/content/recap/cta)**. `data/categories.json` = 24 purpose categories; `reference/carousel-systems.md` = what top creators actually do (persistent chrome, the role arc, icon+keyword atoms, proof devices, engagement mechanics).
 
 Then one line, out loud, before any HTML:
 
@@ -258,16 +262,18 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `reference/platforms.md` | Every size + safe zones, per platform/format |
 | `reference/design-rules.md` | The full premium / anti-slop ruleset |
 | `reference/directions.md` | 32 aesthetic directions + Motif Cookbook (how to build each) |
+| `reference/carousel-systems.md` | What top creators do: chrome, role arc, content atoms, proof, engagement |
 | `reference/recipes.md` | Layout blueprints per post archetype |
 | `reference/copywriting.md` | Hook, headline & CTA formulas |
 | `data/directions.json` | 32 aesthetic directions — the variety engine |
+| `data/categories.json` | 24 purpose categories (template = category × direction × role) |
 | `data/palettes.json` | 24 curated premium palettes (mood/industry tagged) |
 | `data/fonts.json` | 19 Google-Font display+body pairings |
 | `data/motifs.json` | Decorative motif index (snippets in directions.md) |
 | `data/templates.json` | Template registry (id → file, format, use) |
 | `data/hooks.json` | Viral hook library by category |
 | `data/brand-presets.json` | Ready brand tokens + a custom slot |
-| `scripts/ideate.py` | Sample distinct aesthetic directions (the variety engine) |
+| `scripts/ideate.py` | Sample directions / categories; plan carousels (`--carousel`, `--category`, `--list-categories`) |
 | `scripts/search.py` | Recommend / search the design system |
 | `scripts/new_post.py` | Fill a template with content + brand → HTML |
 | `scripts/render.py` | HTML → exact-size PNG (Playwright) |

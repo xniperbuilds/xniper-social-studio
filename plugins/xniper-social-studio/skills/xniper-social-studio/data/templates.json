@@ -69,6 +69,22 @@
       "use": "last slide of a carousel: one big CTA (follow/save), handle prominent",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["cta", "carousel", "follow", "save", "end"]
+    },
+    {
+      "id": "comparison-vs",
+      "file": "comparison-vs.html",
+      "name": "Comparison / VS",
+      "use": "A-vs-B: dual glass panels + center VS + payoff bar. Chrome token-filled; edit panel labels + 3 rows each + payoff (category: comparison-vs)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["comparison", "vs", "versus", "pros-cons", "content"]
+    },
+    {
+      "id": "feature-grid",
+      "file": "feature-grid.html",
+      "name": "Feature / Benefit Grid",
+      "use": "2x3 icon-card grid of features/benefits. Chrome token-filled; edit the 6 cells (category: feature-grid)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["feature-grid", "benefits", "listicle", "grid", "content"]
     }
   ]
 }
