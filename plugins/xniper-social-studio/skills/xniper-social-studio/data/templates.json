@@ -141,6 +141,86 @@
       "use": "Myth (strike-through) vs Truth blocks. HEADLINE = topic; edit the two lines (category: myth-bust)",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["myth-bust", "contrarian", "myth", "truth", "content"]
+    },
+    {
+      "id": "leaderboard",
+      "file": "leaderboard.html",
+      "name": "Benchmark Leaderboard",
+      "use": "Podium of ranked bars; winner glows, losers desaturate. Edit names/scores (category: benchmark-leaderboard)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["benchmark-leaderboard", "ranking", "podium", "stat", "content"]
+    },
+    {
+      "id": "before-after",
+      "file": "before-after.html",
+      "name": "Before → After",
+      "use": "50/50 split, muted before vs vivid after, center VS, transform bar (category: before-after)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["before-after", "transformation", "comparison", "content"]
+    },
+    {
+      "id": "product-showcase",
+      "file": "product-showcase.html",
+      "name": "Product Showcase",
+      "use": "Hero card staged on a spotlight + floating spec chips. Drop a real screenshot in .hero (category: product-showcase)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["product-showcase", "mockup", "hero", "launch", "content"]
+    },
+    {
+      "id": "lead-magnet",
+      "file": "lead-magnet.html",
+      "name": "Lead Magnet",
+      "use": "Headline + 'what's inside' checklist + taped PDF card + comment CTA. Best with a warm palette (category: lead-magnet)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["lead-magnet", "freebie", "pdf", "comment", "cta"]
+    },
+    {
+      "id": "promo-offer",
+      "file": "promo-offer.html",
+      "name": "Promo / Offer",
+      "use": "BIGWORD = the offer (40% OFF / $9). Neo-brutal block + hard shadow + starburst (category: promo-offer)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["promo-offer", "sale", "discount", "offer", "content"]
+    },
+    {
+      "id": "cheatsheet",
+      "file": "cheatsheet.html",
+      "name": "Cheat-sheet",
+      "use": "Dense 2-col keycap reference + giant ghost glyph. Best with a mono font + dark palette (category: cheatsheet)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["cheatsheet", "shortcuts", "reference", "keycaps", "content"]
+    },
+    {
+      "id": "index-contents",
+      "file": "index-contents.html",
+      "name": "Index / Contents",
+      "use": "Numbered table-of-contents with dotted leaders + spiral-binding edge (category: index-contents)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["index-contents", "toc", "contents", "overview", "content"]
+    },
+    {
+      "id": "recipe-card",
+      "file": "recipe-card.html",
+      "name": "Recipe / Formula",
+      "use": "Two zones: ingredients/inputs + numbered method (category: recipe-card)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["recipe-card", "formula", "ingredients", "method", "content"]
+    },
+    {
+      "id": "faq-qa",
+      "file": "faq-qa.html",
+      "name": "FAQ / Q&A",
+      "use": "Stacked question+answer cards with Q/A badges (category: faq-qa)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["faq-qa", "questions", "qa", "objections", "content"]
+    },
+    {
+      "id": "tool-roundup",
+      "file": "tool-roundup.html",
+      "name": "Tool / Resource Roundup",
+      "use": "Rows of logo + name + one-liner + arrow. Replace logo squares + names (category: tool-roundup)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["tool-roundup", "resources", "tools", "list", "content"]
     }
   ]
 }

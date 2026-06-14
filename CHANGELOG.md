@@ -2,6 +2,11 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.6.0] — 2026-06-14
+### Added — template batch 2 (17 → 27 templates), each a distinct structure
+- `leaderboard` (ranked podium bars), `before-after` (50/50 split + VS), `product-showcase` (spotlight-staged hero + spec chips), `lead-magnet` (checklist + taped PDF card), `promo-offer` (neo-brutal big-number block + starburst), `cheatsheet` (dense 2-col keycaps + ghost glyph), `index-contents` (TOC with dotted leaders + spiral edge), `recipe-card` (ingredients + numbered method), `faq-qa` (Q/A badge cards), `tool-roundup` (logo + name + one-liner rows).
+- Every template has its OWN layout skeleton (not a recoloured copy); all rendered/verified.
+
 ## [1.5.0] — 2026-06-14
 ### Added — template batch 1 (10 → 17 templates)
 - 7 new purpose-templates: `listicle-numbered`, `step-flow`, `checklist-rows`, `testimonial-glass`, `profile-intro`, `timeline-roadmap`, `myth-bust` — each token-filled chrome + editable sample body, using the studied content atoms (numbered rows, connector flow, check rows, glass quote, avatar intro, node spine, myth-vs-truth). All rendered/verified.

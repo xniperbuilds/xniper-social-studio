@@ -10,7 +10,7 @@
       "name": "xniper-social-studio",
       "source": "./plugins/xniper-social-studio",
       "description": "Design premium, scroll-stopping social media graphics from a text brief and export them to exact-size PNGs. Instagram, TikTok, LinkedIn, X, YouTube, Pinterest, Facebook.",
-      "version": "1.5.0",
+      "version": "1.6.0",
       "author": {
         "name": "XniperBuilds"
       },
