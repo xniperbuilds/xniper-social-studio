@@ -221,6 +221,86 @@
       "use": "Rows of logo + name + one-liner + arrow. Replace logo squares + names (category: tool-roundup)",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["tool-roundup", "resources", "tools", "list", "content"]
+    },
+    {
+      "id": "quote-serif",
+      "file": "quote-serif.html",
+      "name": "Quote (editorial serif)",
+      "use": "Big serif pull-quote + giant quote mark. HEADLINE = quote, SUBHEAD = attribution. Best with a serif font (category: quote-statement)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["quote-statement", "editorial", "serif", "quote", "cover"]
+    },
+    {
+      "id": "stat-trio",
+      "file": "stat-trio.html",
+      "name": "Stat Trio",
+      "use": "Three numbers in a row. Edit the three values + labels (category: stat-number)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["stat-number", "stats", "data", "metrics", "content"]
+    },
+    {
+      "id": "diagram-flow",
+      "file": "diagram-flow.html",
+      "name": "Diagram Flow",
+      "use": "Horizontal connected icon cards (A->B->C->D). Edit labels (category: diagram-explainer)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["diagram-explainer", "flow", "process", "icon-flow", "content"]
+    },
+    {
+      "id": "listicle-cards",
+      "file": "listicle-cards.html",
+      "name": "Listicle (cards)",
+      "use": "Vertical stack of accent-bar cards. Edit the 4 cards (category: listicle)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["listicle", "cards", "tips", "list", "content"]
+    },
+    {
+      "id": "hook-split",
+      "file": "hook-split.html",
+      "name": "Hook Cover (split)",
+      "use": "Giant headline + accent panel holding BIGWORD/number. Cover (category: hook-cover)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["hook-cover", "cover", "split", "bold", "hook"]
+    },
+    {
+      "id": "definition-card",
+      "file": "definition-card.html",
+      "name": "Definition / Concept",
+      "use": "Dictionary entry: HEADLINE = term, SUBHEAD = meaning; edit pron + example. Best with a serif font (category: definition-concept)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["definition-concept", "definition", "term", "glossary", "content"]
+    },
+    {
+      "id": "stat-brutal",
+      "file": "stat-brutal.html",
+      "name": "Stat (neo-brutal)",
+      "use": "BIGWORD = the number in a hard-shadow block (category: stat-number)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["stat-number", "brutalist", "number", "bold", "content"]
+    },
+    {
+      "id": "announcement-ticket",
+      "file": "announcement-ticket.html",
+      "name": "Announcement (ticket)",
+      "use": "Event/launch as a perforated ticket. EYEBROW = label, BIGWORD = date (category: announcement-launch)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["announcement-launch", "event", "ticket", "launch", "content"]
+    },
+    {
+      "id": "mistake-warning",
+      "file": "mistake-warning.html",
+      "name": "Mistake / Warning",
+      "use": "Warning callout: HEADLINE = the mistake, SUBHEAD = why; edit the fix (category: myth-bust)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["myth-bust", "mistake", "warning", "contrarian", "content"]
+    },
+    {
+      "id": "value-prop-hero",
+      "file": "value-prop-hero.html",
+      "name": "Value Prop Hero",
+      "use": "Benefit headline + product/mockup zone. Replace .mock with a real screenshot (category: value-prop)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["value-prop", "benefit", "mockup", "hero", "cover"]
     }
   ]
 }

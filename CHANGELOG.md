@@ -2,6 +2,14 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.7.0] — 2026-06-14
+### Fixed — the big one: ASK FIRST + no template-look
+- **SKILL.md now mandates asking the user first** (AskUserQuestion: brand · vibe/theme · platform/format · message · reference) before generating — added as one of "Two laws that override everything", rewritten Step 1, and a Pre-Flight gate. Fixes the complaint that it generated without asking.
+- **Hard anti-template law:** never default-fill a template; every output must commit to a sampled direction + chosen palette/font + ≥2 motifs + content-adapted layout. Fixes the "AI vibe / looks like a template" output.
+### Added — template batch 3 (27 → 37), each a distinct structure
+- `quote-serif`, `stat-trio`, `diagram-flow`, `listicle-cards`, `hook-split`, `definition-card`, `stat-brutal`, `announcement-ticket`, `mistake-warning`, `value-prop-hero` — alternate looks/structures for high-use purposes (serif quote, three-stat row, horizontal flow, card stack, split cover, dictionary entry, neo-brutal stat, perforated ticket, warning callout, benefit hero). All rendered/verified.
+- **+24 font pairings (61 total):** Climate Crisis, Rubik Mono One, Darker Grotesque, Gasoek One, Abril Fatface, Yeseva One, League Gothic, Chakra Petch, Orbitron, Righteous, Pacifico, Red Hat, Pixelify Sans, VT323, Special Elite, Lora, Epilogue, Host Grotesk, Schibsted Grotesk, Albert Sans, Khand, Archivo, Gloria Hallelujah, Reddit Sans.
+
 ## [1.6.0] — 2026-06-14
 ### Added — template batch 2 (17 → 27 templates), each a distinct structure
 - `leaderboard` (ranked podium bars), `before-after` (50/50 split + VS), `product-showcase` (spotlight-staged hero + spec chips), `lead-magnet` (checklist + taped PDF card), `promo-offer` (neo-brutal big-number block + starburst), `cheatsheet` (dense 2-col keycaps + ghost glyph), `index-contents` (TOC with dotted leaders + spiral edge), `recipe-card` (ingredients + numbered method), `faq-qa` (Q/A badge cards), `tool-roundup` (logo + name + one-liner rows).

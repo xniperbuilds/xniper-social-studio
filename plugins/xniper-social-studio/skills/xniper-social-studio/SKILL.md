@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.6.0"
+  version: "1.7.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -26,10 +26,20 @@ or a description — you ship the finished image file.
 The bar is simple: **if it could pass for a Behance / Awwwards-grade brand post,
 ship it. If it looks like a default AI template, throw it out and redo it.**
 
+### Two laws that override everything
+1. **ASK BEFORE YOU DESIGN.** Never generate from assumptions. First ask the user —
+   **brand, vibe/theme, platform/format, the message, and any reference they like** —
+   with **AskUserQuestion**. A post made without asking is a FAIL even if it looks ok.
+   (The #1 complaint is "it didn't ask me anything." See Step 1.)
+2. **NEVER SHIP A TEMPLATE-LOOK.** Do NOT just fill a template with the default
+   palette/font — that IS the "AI vibe" to avoid. Every output commits to a sampled
+   aesthetic *direction* + a chosen palette + font + **≥2 motifs**, with the layout
+   adapted to the actual content. If it could pass for a stock template, redo it.
+
 **Variety is the product.** Two posts must never look like the same template with
 the words swapped. Before building, sample a distinct *aesthetic direction* from
 the library (`data/directions.json` via `scripts/ideate.py`) — 37 directions ×
-27 categories × 24 palettes × 37 font pairings × layouts × motifs = hundreds of thousands of looks.
+27 categories × 24 palettes × 61 font pairings × layouts × motifs = hundreds of thousands of looks.
 **Never reuse the same direction two posts in a row.**
 
 ---
@@ -52,8 +62,8 @@ bleed/CMYK, or actually posting/scheduling to a platform.
 ## The pipeline (always follow this)
 
 ```
-1. READ the brief   →  platform · format · topic · brand · vibe · #slides
-2. PICK A DIRECTION →  scripts/ideate.py  (sample distinct aesthetics; never repeat the last)
+1. ASK FIRST        →  AskUserQuestion: brand · vibe/theme · platform/format · message · reference (NEVER skip)
+2. PICK A DIRECTION →  scripts/ideate.py  (sample distinct aesthetics; never repeat the last; never default-fill)
 3. PULL the system  →  scripts/search.py  (palette + font pairing + template + hook)
 4. BUILD HTML       →  fill a template AND push it to the direction (motifs), or hand-build
 5. RENDER PNG       →  scripts/render.py  (exact px, 2x, awaits fonts)
@@ -77,18 +87,29 @@ browser is missing. If Playwright itself is missing, tell the user to run
 
 ---
 
-## Step 1 — Read the brief
+## Step 1 — ASK FIRST (mandatory — do not skip)
 
-Extract, and only ask if genuinely missing:
+Before generating ANYTHING, ask the user with **AskUserQuestion**. The #1 reason
+posts look like generic AI templates is the model guessing instead of asking.
+Even if part of this is in the brief, confirm the rest:
 
-- **Platform + format** → maps to exact pixels (see `reference/platforms.md`).
-  Default if unspecified: Instagram portrait **1080×1350**.
-- **Topic / message** → the single idea this graphic must land.
-- **Brand** → a preset in `data/brand-presets.json`, or custom (colors, font,
-  logo, handle). If none given, infer a fitting palette from the topic — do not
-  default to purple-on-white.
-- **Vibe words** → "bold", "minimal", "luxury", "playful", "techy", "editorial".
-- **Carousel?** → how many slides; plan a cover + body + CTA arc.
+- **Platform & format** — IG post / story / carousel / thumbnail / pin… (→ exact px)
+- **Brand** — their colours / font / logo / @handle; OR a preset
+  (`data/brand-presets.json`); OR "none — propose one for me". Never invent a brand silently.
+- **Vibe / theme** — the aesthetic. Offer concrete named options from `ideate.py`
+  (e.g. bold-grotesk · editorial-vintage · dark-luxe · neo-brutalism · glass-aurora ·
+  kraft-bold · neon-cyber · minimal-photo · y2k-chrome) and let them pick or say "you choose".
+- **The message** — headline / key points / CTA.
+- **Reference (optional)** — anything whose look they want matched.
+- **Carousel?** — how many slides.
+
+Example (adapt to the request):
+- Q "What's this for?" → IG carousel · IG post · story/reel cover · thumbnail · other
+- Q "Brand look?" → "Use my brand (give colours/font)" · a preset · "Pick something premium for me"
+- Q "Which vibe?" → 3–4 named directions + "Surprise me"
+
+Only skip asking if the user EXPLICITLY says "just make it / you decide everything".
+Then state your Design Read (Step 2) so they can still course-correct, and proceed.
 
 ## Step 2 — Pick a direction, then state the Design Read
 
@@ -268,7 +289,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `data/directions.json` | 37 aesthetic directions — the variety engine |
 | `data/categories.json` | 27 purpose categories (template = category × direction × role) |
 | `data/palettes.json` | 24 curated premium palettes (mood/industry tagged) |
-| `data/fonts.json` | 19 Google-Font display+body pairings |
+| `data/fonts.json` | 61 Google-Font display+body pairings |
 | `data/motifs.json` | Decorative motif index (snippets in directions.md) |
 | `data/templates.json` | Template registry (id → file, format, use) |
 | `data/hooks.json` | Viral hook library by category |
@@ -282,6 +303,8 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 
 ## Pre-Flight Checklist (run on every exported PNG)
 
+- [ ] You ASKED the user first (brand · vibe · format · message) — not guessed
+- [ ] Does NOT look like a filled template: committed to a sampled direction + a chosen palette/font + ≥2 motifs + a layout adapted to the content
 - [ ] Renders at the exact target pixels, nothing cut off
 - [ ] One clear focal point; headline readable at thumbnail (30%) size
 - [ ] Display font is distinctive (not Arial/Inter/Roboto/system)
