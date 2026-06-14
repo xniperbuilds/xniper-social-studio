@@ -85,6 +85,62 @@
       "use": "2x3 icon-card grid of features/benefits. Chrome token-filled; edit the 6 cells (category: feature-grid)",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["feature-grid", "benefits", "listicle", "grid", "content"]
+    },
+    {
+      "id": "listicle-numbered",
+      "file": "listicle-numbered.html",
+      "name": "Listicle (numbered)",
+      "use": "5 numbered points on one slide. Chrome token-filled; edit the rows (category: listicle)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["listicle", "tips", "numbered", "list", "content"]
+    },
+    {
+      "id": "step-flow",
+      "file": "step-flow.html",
+      "name": "Step-by-step Flow",
+      "use": "4 connected numbered step cards. Chrome token-filled; edit the steps (category: step-by-step)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["step-by-step", "howto", "process", "steps", "content"]
+    },
+    {
+      "id": "checklist-rows",
+      "file": "checklist-rows.html",
+      "name": "Checklist / Takeaways",
+      "use": "Ticked rows + summary chip. Chrome token-filled; SUBHEAD = summary, edit rows (category: checklist)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["checklist", "takeaways", "recap", "dos", "content"]
+    },
+    {
+      "id": "testimonial-glass",
+      "file": "testimonial-glass.html",
+      "name": "Testimonial (glass)",
+      "use": "Stars + quote + avatar in a glass panel. HEADLINE = quote; edit name/role (category: testimonial)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["testimonial", "review", "proof", "social-proof", "content"]
+    },
+    {
+      "id": "profile-intro",
+      "file": "profile-intro.html",
+      "name": "Profile / Intro",
+      "use": "Avatar + name + niche tags + bio + follow. HEADLINE = name, SUBHEAD = bio (category: profile-intro)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["profile-intro", "about", "intro", "creator", "content"]
+    },
+    {
+      "id": "timeline-roadmap",
+      "file": "timeline-roadmap.html",
+      "name": "Timeline / Roadmap",
+      "use": "Vertical connector spine with 4 phase nodes. Chrome token-filled; edit nodes (category: timeline-roadmap)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["timeline", "roadmap", "phases", "journey", "content"]
+    },
+    {
+      "id": "myth-bust",
+      "file": "myth-bust.html",
+      "name": "Myth-bust",
+      "use": "Myth (strike-through) vs Truth blocks. HEADLINE = topic; edit the two lines (category: myth-bust)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["myth-bust", "contrarian", "myth", "truth", "content"]
     }
   ]
 }
