@@ -36,14 +36,17 @@ def tokens(text):
     return [t for t in re.split(r"[^a-z0-9]+", text.lower()) if t]
 
 
-def score(item_terms, query_terms):
-    """+2 for each query token that hits a tag, +1 for a name/use substring hit."""
+def score(terms, query_terms):
+    """terms = (curated tags, other text tokens). Tags weigh most; deduped sets
+    avoid id/name double-counting. +3 tag hit, +2 text hit, +1 fuzzy substring."""
+    tags, rest = terms
     s = 0
-    joined = " ".join(item_terms)
     for q in query_terms:
-        if q in item_terms:
+        if q in tags:
+            s += 3
+        elif q in rest:
             s += 2
-        elif q in joined:
+        elif len(q) >= 3 and any(q in t for t in (tags | rest)):
             s += 1
     return s
 
@@ -54,17 +57,17 @@ def rank(items, terms_fn, query_terms):
     return scored
 
 
-# --- term extractors per domain --------------------------------------------
+# --- term extractors per domain (tags kept separate so they outweigh id/name) ---
 def palette_terms(p):
-    return tokens(" ".join(p.get("tags", [])) + " " + p.get("name", "") + " " + p.get("id", ""))
+    return (set(t.lower() for t in p.get("tags", [])), set(tokens(p.get("name", "") + " " + p.get("id", ""))))
 
 
 def font_terms(f):
-    return tokens(" ".join(f.get("tags", [])) + " " + f.get("name", "") + " " + f.get("id", ""))
+    return (set(t.lower() for t in f.get("tags", [])), set(tokens(f.get("name", "") + " " + f.get("id", ""))))
 
 
 def tmpl_terms(t):
-    return tokens(" ".join(t.get("tags", [])) + " " + t.get("name", "") + " " + t.get("use", "") + " " + t.get("id", ""))
+    return (set(x.lower() for x in t.get("tags", [])), set(tokens(t.get("use", "") + " " + t.get("name", "") + " " + t.get("id", ""))))
 
 
 HOOK_KEYS = {
@@ -126,19 +129,24 @@ def main():
     if args.domain == "hooks":
         cat = pick_hook_category(q)
         print(f"\n== HOOKS ({cat}) ==  [replace {{topic}} with your subject]")
-        for h in hooks[cat]:
+        for h in hooks.get(cat, hooks.get("question", [])):
             print(f"  - {h}")
         return
 
     # default → recommend
-    bp = rank(palettes, palette_terms, q)[0][1]
-    bf = rank(fonts, font_terms, q)[0][1]
-    bt = rank(templates, tmpl_terms, q)[0][1]
+    if not palettes or not fonts or not templates:
+        print("ERROR: design data is empty or corrupt (palettes/fonts/templates).", file=sys.stderr)
+        sys.exit(1)
+    rp, rf, rt = rank(palettes, palette_terms, q), rank(fonts, font_terms, q), rank(templates, tmpl_terms, q)
+    bp, bf, bt = rp[0][1], rf[0][1], rt[0][1]
+    weak = rp[0][0] == 0 and rf[0][0] == 0 and rt[0][0] == 0
     cat = pick_hook_category(q)
 
     print("=" * 64)
     print("  XNIPER SOCIAL STUDIO — RECOMMENDED DESIGN SYSTEM")
     print("=" * 64)
+    if weak:
+        print("  (no strong keyword match — showing sensible defaults; refine the brief)")
     print(f"  Brief        : {args.query}")
     print(f"  Palette      : {bp['id']}  ({bp['name']})")
     print(f"     bg {bp['bg']}  text {bp['text']}  accent {bp['accent']}  accent2 {bp['accent2']}")
@@ -146,7 +154,7 @@ def main():
     print(f"  Template     : {bt['id']}  ({bt['name']})  -> use for: {bt['use']}")
     print(f"  Hook style   : {cat}")
     print("  Hook ideas   :")
-    for h in hooks[cat][:3]:
+    for h in hooks.get(cat, hooks.get("question", []))[:3]:
         print(f"     - {h}")
     print("-" * 64)
     print("  content.json skeleton:")

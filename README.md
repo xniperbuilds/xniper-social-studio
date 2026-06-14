@@ -8,7 +8,7 @@ Most AI design output looks like... AI design output: flat, centered, purple-on-
 
 ## Showcase
 
-Four built-in templates, four palettes, four font pairings — all generated from one brief and rendered straight to PNG:
+Four built-in templates — each shown with a different palette + font pairing from the library (**15 palettes, 12 pairings**), all generated from one brief and rendered straight to PNG:
 
 <p align="center">
   <img src="assets/quote-bold-1080x1350.png" width="24%" alt="Bold statement template">
@@ -53,11 +53,15 @@ Update later with `/plugin marketplace update xniperbuilds`.
 
 ### Option B — Manual
 
-Copy the skill folder into your Claude Code skills directory:
+Copy the skill folder into your Claude Code skills directory (create it if it doesn't exist):
 
 ```
-plugins/xniper-social-studio/skills/xniper-social-studio  →  ~/.claude/skills/xniper-social-studio
+plugins/xniper-social-studio/skills/xniper-social-studio
+   →  ~/.claude/skills/xniper-social-studio              (macOS / Linux)
+   →  %USERPROFILE%\.claude\skills\xniper-social-studio  (Windows)
 ```
+
+PNG export still needs Playwright — see [Requirements](#requirements).
 
 ## Usage
 

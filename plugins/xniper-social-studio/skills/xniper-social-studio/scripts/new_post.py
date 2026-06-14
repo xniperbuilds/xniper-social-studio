@@ -15,6 +15,7 @@ Resolution order (high → low): content.json  >  --palette/--font CLI  >  --bra
 HEADLINE/SUBHEAD may contain real newlines (→ <br>) and simple inline HTML like <em>word</em>.
 """
 import argparse
+import html
 import json
 import re
 import sys
@@ -29,8 +30,13 @@ ROOT = Path(__file__).resolve().parent.parent
 DATA = ROOT / "data"
 TEMPLATES = ROOT / "templates"
 
-DEFAULT_PALETTE = "electric-violet"
+# A neutral, broadly-flattering default that is NOT the banned purple-on-white
+# AI tell. Override per brief/brand any time.
+DEFAULT_PALETTE = "ocean-deep"
 DEFAULT_FONT = "archivo-figtree"
+
+# Inline tags allowed inside copy (everything else is escaped for safety).
+ALLOWED_TAGS = ("<em>", "</em>", "<strong>", "</strong>", "<br>")
 
 
 def load(name):
@@ -68,16 +74,19 @@ def main():
         die(f"bad --size '{args.size}', expected WxH like 1080x1350")
     W, H = m.group(1), m.group(2)
 
-    # --- content
+    # --- content (test JSON-shape first so an inline blob never gets treated as a path)
     content = {}
     if args.content:
-        p = Path(args.content)
-        if p.exists():
-            content = json.loads(p.read_text(encoding="utf-8"))
-        elif args.content.lstrip().startswith("{"):
-            content = json.loads(args.content)
+        if args.content.lstrip().startswith("{"):
+            raw, src = args.content, "inline JSON"
+        elif Path(args.content).exists():
+            raw, src = Path(args.content).read_text(encoding="utf-8"), args.content
         else:
             die(f"--content '{args.content}' is neither a file nor JSON")
+        try:
+            content = json.loads(raw)
+        except json.JSONDecodeError as e:
+            die(f"invalid JSON in {src}: {e}")
 
     # --- brand preset
     brand = {}
@@ -101,13 +110,18 @@ def main():
         tmpl_path = TEMPLATES / reg["file"]
     if not tmpl_path.exists():
         die(f"template file not found: {tmpl_path}")
-    html = tmpl_path.read_text(encoding="utf-8")
+    tmpl_html = tmpl_path.read_text(encoding="utf-8")
 
     def text(key, default=""):
         v = content.get(key, default)
         if v is None:
             v = ""
-        return str(v).replace("\n", "<br>")
+        # Escape everything (fixes bare "&", stray "<", and injection), then
+        # restore the sanctioned inline tags and convert newlines to <br>.
+        s = html.escape(str(v), quote=False)
+        for tag in ALLOWED_TAGS:
+            s = s.replace(html.escape(tag, quote=False), tag)
+        return s.replace("\n", "<br>")
 
     handle = content.get("handle") or brand.get("handle") or "@yourbrand"
 
@@ -126,7 +140,7 @@ def main():
         key = match.group(1)
         return repl.get(key, match.group(0))
 
-    out_html = re.sub(r"\{\{([A-Z0-9_]+)\}\}", sub, html)
+    out_html = re.sub(r"\{\{([A-Z0-9_]+)\}\}", sub, tmpl_html)
 
     # warn on any leftover token
     leftover = set(re.findall(r"\{\{([A-Z0-9_]+)\}\}", out_html))

@@ -38,13 +38,17 @@ Art-direction families to commit to (pick ONE per graphic):
 
 - **One locked accent.** Neutral/dark base + a single saturated accent used
   consistently. Don't introduce a second accent "to balance it."
-- **The purple ban.** The AI-purple/blue-glow gradient on white is the most
-  recognizable AI tell. Don't reach for it by default. If the brand IS purple,
-  own it deliberately with a real palette — not a generic glow.
+- **The purple ban.** The AI-purple/blue-glow gradient **on white/light** is the
+  most recognizable AI tell. Don't reach for it by default. (Purple/violet on a
+  deep dark base, used deliberately as a brand accent, is fine — the tell is the
+  white-background glow, not the hue.) If the brand IS purple, own it with a real
+  palette — not a generic glow.
 - **Tint your shadows.** Shadows take the background's hue, never pure `#000`
   on a colored or light background. Pure-black drop shadows look flat and cheap.
 - **Contrast is law.** Body/headline text ≥ 4.5:1 against its background; large
-  display text ≥ 3:1. Verify, don't eyeball. Light-grey text on white = banned.
+  display text ≥ 3:1. Verify, don't eyeball — the curated `data/palettes.json`
+  pairs are pre-balanced, so you only need to re-check **custom/brand** colors
+  (paste fg+bg into any WCAG contrast checker). Light-grey text on white = banned.
 - Use the curated palettes in `data/palettes.json` — each ships bg / surface /
   text / muted / accent / gradient already balanced.
 

@@ -8,9 +8,10 @@ Examples
   python render.py out/ --batch --out out/exports/        # whole folder
   python render.py out/slide-1080x1350.html               # size read from filename
 
-Renders at deviceScaleFactor 2 by default, hides scrollbars, and waits for web
-fonts + images to load before capture. If the Chromium browser binary is missing
-it is installed automatically (Playwright itself must already be pip-installed).
+Renders at deviceScaleFactor 2 by default and awaits all web fonts
+(document.fonts.ready) before capture, so type never ships in a fallback font. If
+the Chromium browser binary is missing it is installed automatically (Playwright
+itself must already be pip-installed).
 """
 import argparse
 import re
@@ -23,7 +24,7 @@ try:
 except Exception:
     pass
 
-SIZE_RE = re.compile(r"(\d{3,5})x(\d{3,5})")
+SIZE_RE = re.compile(r"(\d{2,5})x(\d{2,5})")
 
 
 def ensure_playwright():
@@ -38,21 +39,26 @@ def ensure_playwright():
 
 
 def launch(sync_playwright):
-    """Launch Chromium, auto-installing the browser binary on first failure."""
+    """Launch Chromium. Any launch failure (almost always a missing browser
+    binary) triggers one idempotent `playwright install chromium` + retry."""
     pw = sync_playwright().start()
     try:
-        browser = pw.chromium.launch()
-        return pw, browser
+        return pw, pw.chromium.launch()
     except Exception as e:
-        msg = str(e).lower()
-        if "executable doesn" in msg or "install" in msg or "not found" in msg:
-            print("Chromium not found — installing it once (python -m playwright install chromium)...")
-            pw.stop()
-            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
-            pw = sync_playwright().start()
-            return pw, pw.chromium.launch()
+        print(f"Chromium launch failed ({e}).\nInstalling the browser once "
+              f"(python -m playwright install chromium)...", file=sys.stderr)
         pw.stop()
-        raise
+        try:
+            subprocess.run([sys.executable, "-m", "playwright", "install", "chromium"], check=True)
+        except Exception as ie:
+            print(f"ERROR: 'playwright install chromium' failed: {ie}", file=sys.stderr)
+            raise
+        pw = sync_playwright().start()
+        try:
+            return pw, pw.chromium.launch()
+        except Exception:
+            pw.stop()
+            raise
 
 
 def size_for(path, override):
@@ -60,6 +66,7 @@ def size_for(path, override):
         m = SIZE_RE.fullmatch(override.lower()) or SIZE_RE.search(override.lower())
         if m:
             return int(m.group(1)), int(m.group(2))
+        print(f"WARN: --size '{override}' is not WxH; ignoring it.", file=sys.stderr)
     m = SIZE_RE.search(path.name)
     if m:
         return int(m.group(1)), int(m.group(2))
@@ -69,13 +76,14 @@ def size_for(path, override):
 
 def shoot(browser, html_path, out_path, w, h, scale):
     page = browser.new_page(viewport={"width": w, "height": h}, device_scale_factor=scale)
-    page.goto(html_path.resolve().as_uri(), wait_until="networkidle")
+    # domcontentloaded is fast and network-independent (the full 'load' event can
+    # stall on a slow font CDN); the real font gate is awaiting document.fonts.ready.
+    page.goto(html_path.resolve().as_uri(), wait_until="domcontentloaded", timeout=30000)
     try:
-        page.evaluate("document.fonts && document.fonts.ready")
-        page.wait_for_function("document.fonts ? document.fonts.status === 'loaded' : true", timeout=8000)
+        page.evaluate("async () => { if (document.fonts) { await document.fonts.ready; } }")
     except Exception:
         pass
-    page.wait_for_timeout(600)
+    page.wait_for_timeout(500)  # settle for paint
     out_path.parent.mkdir(parents=True, exist_ok=True)
     page.screenshot(path=str(out_path), type="png", clip={"x": 0, "y": 0, "width": w, "height": h})
     page.close()
@@ -101,12 +109,20 @@ def main():
             sys.exit(1)
         out_dir = Path(args.out) if args.out else inp / "exports"
         pw, browser = launch(sync_playwright)
+        failed = 0
         try:
             for f in files:
                 w, h = size_for(f, args.size)
-                shoot(browser, f, out_dir / (f.stem + ".png"), w, h, args.scale)
+                try:
+                    shoot(browser, f, out_dir / (f.stem + ".png"), w, h, args.scale)
+                except Exception as e:
+                    failed += 1
+                    print(f"FAIL {f.name}: {e}", file=sys.stderr)
         finally:
             browser.close(); pw.stop()
+        if failed:
+            print(f"{failed} of {len(files)} file(s) failed to render.", file=sys.stderr)
+            sys.exit(1)
     else:
         if not inp.exists():
             print(f"ERROR: file not found: {inp}", file=sys.stderr)

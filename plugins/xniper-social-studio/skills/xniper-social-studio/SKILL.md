@@ -8,12 +8,13 @@ description: >-
   for Instagram, Facebook, LinkedIn, X/Twitter, TikTok, YouTube, Pinterest, or
   Threads. Triggers on: "design a post", "make a carousel", "story for", "IG
   post", "thumbnail", "quote card", "promo graphic", "social media image", "post
-  for my brand". Produces real HTML/CSS rendered to PNG (not advice) with a
+  for my brand", "reel cover", "pin", "OG image", "post banao", "carousel banao".
+  Produces real HTML/CSS rendered to PNG (not advice) with a
   bold, modern, magazine-grade look — never flat, generic, or templated.
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.0.0"
+  version: "1.0.1"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -94,27 +95,30 @@ This forces an intentional direction instead of a reflex template. Commit to it.
 ## Step 3 — Pull the design system
 
 ```bash
-python scripts/search.py "fitness coach bold motivational instagram" --recommend
+python "$SKILL/scripts/search.py" "fitness coach bold motivational instagram" --recommend
 ```
 
 Returns a ready system: palette (bg/surface/text/accent/gradient), font pairing,
 a recommended template id, and a matching hook. Deep-dive any dimension:
 
 ```bash
-python scripts/search.py "luxury dark gold"   --domain palettes -n 5
-python scripts/search.py "editorial elegant"  --domain fonts
-python scripts/search.py "quote announcement" --domain templates
-python scripts/search.py "tips listicle"      --domain hooks
+python "$SKILL/scripts/search.py" "luxury dark gold"   --domain palettes -n 5
+python "$SKILL/scripts/search.py" "editorial elegant"  --domain fonts
+python "$SKILL/scripts/search.py" "quote announcement" --domain templates
+python "$SKILL/scripts/search.py" "tips listicle"      --domain hooks
 ```
 
 ## Step 4 — Build the HTML
 
-Fastest path — fill a template:
+Fastest path — fill a template (matches what `search.py --recommend` prints):
 
 ```bash
-python scripts/new_post.py --template quote-bold --brand xniperbuilds \
+python "$SKILL/scripts/new_post.py" --template quote-bold \
+  --palette midnight-neon --font grotesk-mono \
   --content content.json --size 1080x1350 --out out/slide-1.html
 ```
+
+Style precedence (high→low): **content.json `palette`/`font` > `--palette`/`--font` flags > `--brand` preset > built-in default.** For a saved brand, swap the two flags for one: `--brand xniperbuilds`.
 
 `content.json` carries the copy + chosen tokens:
 
@@ -138,9 +142,9 @@ blueprints (cover, tip-stack, stat, testimonial, before/after, CTA end-card).
 ## Step 5 — Render to PNG
 
 ```bash
-python scripts/render.py out/slide-1.html --size 1080x1350 --out out/slide-1.png
+python "$SKILL/scripts/render.py" out/slide-1.html --size 1080x1350 --out out/slide-1.png
 # whole folder at once:
-python scripts/render.py out/ --batch --out out/exports/
+python "$SKILL/scripts/render.py" out/ --batch --out out/exports/
 ```
 
 Renders at `deviceScaleFactor: 2` (crisp), hides scrollbars, and waits for fonts
@@ -176,8 +180,9 @@ This is what separates this skill from generic output. Full detail in
    is obvious in a half-second thumbnail glance.
 7. **Real contrast, real legibility.** Text passes WCAG AA (4.5:1). Test it
    readable at 30% size — that's the feed.
-8. **Safe zones.** Keep critical content in the central ~80%; respect story UI
-   zones (top ~250px / bottom ~320px on 1080×1920). See `reference/platforms.md`.
+8. **Safe zones.** Keep critical content in the central ~80%. Stories and Reels
+   have *different* UI overlays on 1080×1920 — check `reference/platforms.md`
+   before placing text/CTA.
 9. **Copy self-audit.** Re-read every visible string. Cut anything cute-but-
    broken. Headline ≤ ~8 words. One idea per graphic.
 
@@ -186,21 +191,16 @@ This is what separates this skill from generic output. Full detail in
 
 ---
 
-## Platform sizes (quick reference)
+## Platform sizes (defaults)
 
 | Platform | Format | Size (px) | Aspect |
 |---|---|---|---|
 | Instagram | Portrait post / carousel | **1080×1350** | 4:5 |
 | Instagram | Square post | 1080×1080 | 1:1 |
-| Instagram | Story / Reel cover | 1080×1920 | 9:16 |
-| Facebook | Feed post | 1200×630 | 1.91:1 |
-| X / Twitter | Post image | 1600×900 | 16:9 |
-| LinkedIn | Feed post | 1200×1500 | 4:5 |
-| Pinterest | Pin | 1000×1500 | 2:3 |
-| YouTube | Thumbnail | 1280×720 | 16:9 |
-| TikTok | Cover | 1080×1920 | 9:16 |
+| Instagram / TikTok | Story / Reel cover | 1080×1920 | 9:16 |
+| Facebook / OG link | Feed / share image | 1200×630 | 1.91:1 |
 
-Full table + per-platform safe zones: `reference/platforms.md`.
+**Full table** (X, LinkedIn, Pinterest, YouTube, Threads, profile headers) **+ per-platform safe zones → `reference/platforms.md`.** Stories and Reels safe zones differ — check before placing text on 1080×1920.
 
 ## Typography scale (at 1080px width — multiply for larger canvases)
 
@@ -254,6 +254,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 - [ ] Renders at the exact target pixels, nothing cut off
 - [ ] One clear focal point; headline readable at thumbnail (30%) size
 - [ ] Display font is distinctive (not Arial/Inter/Roboto/system)
+- [ ] The web display font actually rendered — not a system fallback
 - [ ] Single locked accent; no stray off-palette color
 - [ ] Has depth — gradient/grain/glow/shape/large type, not a flat fill
 - [ ] No AI tells (purple-on-white glow, 3 identical cards, emoji-as-icon)
