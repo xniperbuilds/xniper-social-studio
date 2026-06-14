@@ -58,10 +58,74 @@ def pick(items, by_id, ids, query_terms, rng):
     return rng.choice(items)
 
 
+HOOK_KEYS = {
+    "listicle": ["tip", "tips", "list", "steps", "howto", "guide", "ways", "mistakes", "rules", "hacks"],
+    "transformation": ["before", "after", "growth", "result", "journey", "transform"],
+    "mistake": ["mistake", "wrong", "fail", "avoid", "error", "flop"],
+    "cta": ["launch", "promo", "sale", "drop", "free", "new", "announce"],
+    "curiosity": ["secret", "reveal", "behind", "nobody"],
+    "bold_claim": ["bold", "value", "benefit", "best"],
+    "question": [],
+}
+
+
+def pick_hook_category(query_terms):
+    best, best_n = "question", 0
+    for cat, kws in HOOK_KEYS.items():
+        n = sum(1 for q in query_terms if q in kws)
+        if n > best_n:
+            best, best_n = cat, n
+    return best
+
+
+def carousel_plan(d, palettes, fonts, templates, hooks, q, n, size, rng):
+    pal_by = {p["id"]: p for p in palettes}
+    font_by = {f["id"]: f for f in fonts}
+    pal = pick(palettes, pal_by, d.get("example_palettes", []), q + d.get("tags", []), rng)
+    fnt = pick(fonts, font_by, d.get("example_fonts", []), q + d.get("tags", []), rng)
+    ids = {t["id"] for t in templates}
+    cover = "carousel-cover" if "carousel-cover" in ids else "quote-bold"
+    cta = "cta-endcard" if "cta-endcard" in ids else "announcement"
+    body_pool = [t for t in ["tip-card", "blueprint-diagram", "stat-card", "editorial-vintage", "quote-bold"] if t in ids] or ["tip-card"]
+    cat = pick_hook_category(q)
+    hook = (hooks.get(cat) or hooks.get("question") or ["Here's the one thing about {topic}"])
+    hook = rng.choice(hook).replace("{topic}", (" ".join(q) or "this"))
+    handle = "@yourbrand"
+
+    print("=" * 70)
+    print(f"  CAROUSEL PLAN — {n} slides")
+    print(f"  Direction : {d['name']} ({d['id']})   [LOCKED across the set]")
+    print(f"  Palette   : {pal['id']}   Font: {fnt['id']}   (locked; vary only layout)")
+    print(f"  How-to    : {d['vibe']}")
+    print("=" * 70)
+    slides = []
+    for i in range(1, n + 1):
+        if i == 1:
+            role, tmpl = "COVER / HOOK", cover
+            content = {"eyebrow": f"1/{n}", "headline": hook, "handle": handle, "cta": "swipe"}
+        elif i == n:
+            role, tmpl = "CTA / END-CARD", cta
+            content = {"eyebrow": f"{n}/{n}", "headline": "Found this useful?", "subhead": "Save it + follow for more.", "cta": "Follow", "handle": handle}
+        else:
+            role, tmpl = "POINT", body_pool[(i - 2) % len(body_pool)]
+            idx = f"{i-1:02d}"
+            content = {"eyebrow": f"POINT {idx}", "index": idx, "headline": "Point goes here", "subhead": "One supporting line.", "handle": handle, "cta": f"{i}/{n}"}
+        slides.append((i, role, tmpl, content))
+        print(f"\n  Slide {i} — {role}   template: {tmpl}")
+        print(f"     content: {json.dumps(content, ensure_ascii=False)}")
+    print("\n" + "-" * 70)
+    print("  Write each content above to s1.json..sN.json, then (palette+font LOCKED):")
+    for i, role, tmpl, _ in slides:
+        print(f"    python scripts/new_post.py --template {tmpl} --palette {pal['id']} --font {fnt['id']} --content s{i}.json --size {size} --out out/slide-{i}-{size}.html")
+    print("    python scripts/render.py out/ --batch --out out/exports/")
+    print("\n  Keep the direction the SAME on every slide; vary the layout. Next carousel: a different direction.")
+
+
 def main():
     ap = argparse.ArgumentParser(description="Generate N distinct design directions for a brief")
     ap.add_argument("query", nargs="?", default="", help="brief / topic keywords")
     ap.add_argument("-n", type=int, default=6, help="how many distinct ideas (default 6)")
+    ap.add_argument("--carousel", type=int, metavar="SLIDES", help="plan a full carousel of SLIDES slides (one locked direction)")
     ap.add_argument("--seed", type=int, help="seed for reproducible output")
     ap.add_argument("--size", default="1080x1350", help="target size WxH")
     ap.add_argument("--direction", help="force a specific direction id (vary everything else)")
@@ -77,8 +141,26 @@ def main():
         templates = load("templates.json", "templates")
     except Exception:
         templates = []
+    try:
+        hooks = load("hooks.json", "hooks")
+    except Exception:
+        hooks = {}
     pal_by = {p["id"]: p for p in palettes}
     font_by = {f["id"]: f for f in fonts}
+
+    # full-carousel plan: one locked direction across the whole set
+    if args.carousel:
+        if args.direction:
+            d = next((x for x in directions if x["id"] == args.direction), None)
+            if not d:
+                print(f"ERROR: no direction '{args.direction}'. Options: {', '.join(x['id'] for x in directions)}", file=sys.stderr)
+                sys.exit(1)
+        elif q:
+            d = sorted(directions, key=lambda x: tag_score(x.get("tags", []), q) + rng.random(), reverse=True)[0]
+        else:
+            d = rng.choice(directions)
+        carousel_plan(d, palettes, fonts, templates, hooks, q, max(2, args.carousel), args.size, rng)
+        return
 
     # choose which directions to feature
     if args.direction:

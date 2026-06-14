@@ -53,6 +53,22 @@
       "use": "technical grid-paper: bold headline with highlighter, connector dots, mono label (direction: blueprint-diagram)",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["technical", "educational", "diagram", "dev", "system-design", "tip", "howto"]
+    },
+    {
+      "id": "carousel-cover",
+      "file": "carousel-cover.html",
+      "name": "Carousel Cover / Hook",
+      "use": "slide 1 of a carousel: pure hook, huge type, counter pill + swipe cue",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["cover", "hook", "carousel", "bold", "announcement"]
+    },
+    {
+      "id": "cta-endcard",
+      "file": "cta-endcard.html",
+      "name": "CTA / End-card",
+      "use": "last slide of a carousel: one big CTA (follow/save), handle prominent",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["cta", "carousel", "follow", "save", "end"]
     }
   ]
 }

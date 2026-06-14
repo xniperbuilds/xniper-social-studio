@@ -37,6 +37,12 @@
     { "id": "sunburst",         "name": "Deco sunburst",             "use": "Radiating rays — art deco/retro." },
     { "id": "overprint",        "name": "Misregistered overprint",   "use": "Two ink layers offset + multiply — riso." },
     { "id": "caret",            "name": "Terminal caret",            "use": "Blinking-style block caret / prompt — mono/terminal." },
-    { "id": "handwritten-accent","name": "Handwritten accent line",  "use": "One script-font line (Caveat/Shantell) for a human aside." }
+    { "id": "handwritten-accent","name": "Handwritten accent line",  "use": "One script-font line (Caveat/Shantell) for a human aside." },
+    { "id": "extrude-3d",       "name": "Extruded 3D type",          "use": "Layered text-shadow stack gives type real thickness/depth." },
+    { "id": "iso-tile",         "name": "Isometric tile/grid",       "use": "2.5D blocks on a 30deg iso grid — explainer scenes." },
+    { "id": "clay",             "name": "Claymorphism shadow",       "use": "Inset + outset soft shadows on rounded shapes = puffy 'clay'." },
+    { "id": "noise-gradient",   "name": "Grainy gradient field",     "use": "Bold gradient + heavy grain (10-14%) — album/poster look." },
+    { "id": "papercut-shadow",  "name": "Cut-paper layer shadow",    "use": "Soft offset shadow on stacked shapes = layered paper depth." },
+    { "id": "duotone",          "name": "Duotone photo",             "use": "Two-tone filtered photo locked to the palette." }
   ]
 }

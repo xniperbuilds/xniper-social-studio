@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.1.0"
+  version: "1.2.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -28,7 +28,7 @@ ship it. If it looks like a default AI template, throw it out and redo it.**
 
 **Variety is the product.** Two posts must never look like the same template with
 the words swapped. Before building, sample a distinct *aesthetic direction* from
-the library (`data/directions.json` via `scripts/ideate.py`) — 24 directions ×
+the library (`data/directions.json` via `scripts/ideate.py`) — 32 directions ×
 24 palettes × 19 font pairings × layouts × motifs = tens of thousands of looks.
 **Never reuse the same direction two posts in a row.**
 
@@ -103,7 +103,7 @@ Then one line, out loud, before any HTML:
 
 > *"Reading this as a `<format>` for `<audience>` in the **`<direction>`** direction — `<palette>` palette, `<display font>` / `<body font>`, `<layout>`, with `<motifs>`."*
 
-`data/directions.json` = 24 movements; `reference/directions.md` = how to build each + the **Motif Cookbook** (grain, highlighter, sketch-underline, connector-dots, glass, etc.). Commit fully and execute with precision.
+`data/directions.json` = 32 movements; `reference/directions.md` = how to build each + the **Motif Cookbook** (grain, highlighter, sketch-underline, connector-dots, glass, clay, 3D, etc.). Commit fully and execute with precision.
 
 ## Step 3 — Pull the design system
 
@@ -231,6 +231,12 @@ This is what separates this skill from generic output. Full detail in
 
 ## Carousels
 
+**Plan the whole set in one command** — locks ONE direction + palette + font, assigns each slide a role (hook → points → CTA), varies the layout:
+
+```bash
+python "$SKILL/scripts/ideate.py" "<brief>" --carousel 6
+```
+
 Plan the arc, don't just repeat a template:
 
 - **Slide 1 = pure hook** (a question, bold claim, or callout — see
@@ -251,10 +257,10 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 |---|---|
 | `reference/platforms.md` | Every size + safe zones, per platform/format |
 | `reference/design-rules.md` | The full premium / anti-slop ruleset |
-| `reference/directions.md` | 24 aesthetic directions + Motif Cookbook (how to build each) |
+| `reference/directions.md` | 32 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/recipes.md` | Layout blueprints per post archetype |
 | `reference/copywriting.md` | Hook, headline & CTA formulas |
-| `data/directions.json` | 24 aesthetic directions — the variety engine |
+| `data/directions.json` | 32 aesthetic directions — the variety engine |
 | `data/palettes.json` | 24 curated premium palettes (mood/industry tagged) |
 | `data/fonts.json` | 19 Google-Font display+body pairings |
 | `data/motifs.json` | Decorative motif index (snippets in directions.md) |

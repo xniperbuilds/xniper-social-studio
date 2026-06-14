@@ -169,5 +169,45 @@ mark{background:linear-gradient(180deg,transparent 8%, color-mix(in srgb,var(--a
 <p style="font-family:'Caveat',cursive;color:var(--accent);font-size:3.4vw">and the part nobody tells you →</p>
 ```
 
+**Extruded 3D type:**
+```css
+.extrude{color:var(--text);text-shadow:
+  1px 1px 0 var(--accent),2px 2px 0 var(--accent),3px 3px 0 var(--accent),
+  4px 4px 0 var(--accent),5px 5px 0 var(--accent),10px 12px 24px rgba(0,0,0,.35)}
+```
+
+**Claymorphism (puffy):**
+```css
+.clay{background:var(--surface);border-radius:34px;
+  box-shadow:8px 8px 18px rgba(0,0,0,.12), -8px -8px 18px rgba(255,255,255,.7),
+  inset 3px 3px 8px rgba(255,255,255,.6), inset -4px -4px 10px rgba(0,0,0,.08)}
+```
+
+**Grainy gradient field (album/poster):**
+```css
+.noisegrad{position:absolute;inset:0;background:linear-gradient(135deg,var(--accent),var(--accent2) 60%,var(--bg))}
+/* layer the .grain motif on top at 10-14% opacity */
+```
+
+**Isometric tile:**
+```css
+.iso{transform:rotateX(55deg) rotateZ(45deg);transform-style:preserve-3d}
+.iso-grid{background:linear-gradient(var(--muted) 1px,transparent 1px) 0 0/48px 48px,
+  linear-gradient(90deg,var(--muted) 1px,transparent 1px) 0 0/48px 48px;opacity:.25;
+  transform:rotateX(55deg) rotateZ(45deg) scale(1.6)}
+```
+
+**Cut-paper layer shadow:**
+```css
+.papercut{background:var(--surface);border-radius:18px;filter:drop-shadow(0 14px 10px rgba(0,0,0,.16))}
+/* stack 2-3 with different fills + slight offsets for depth */
+```
+
+**Duotone photo:**
+```css
+.duotone{filter:grayscale(1) contrast(1.1);background:var(--accent);background-blend-mode:multiply}
+/* put the <img> inside with mix-blend-mode:luminosity over the accent fill */
+```
+
 > Put the grain/glow/mesh layers behind content (`z-index` below the text), keep
 > text contrast ≥ 4.5:1, and respect the safe zones in `platforms.md`.

@@ -2,6 +2,13 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.2.0] — 2026-06-14
+### Added
+- **+8 aesthetic directions (32 total):** 3D-depth, isometric, claymorphism, grain-gradient, liquid-chrome, paper-craft, data-viz, sketch-notebook.
+- **`ideate.py --carousel N`** — plans a whole carousel: locks ONE direction + palette + font, assigns each slide a role (hook cover → points → CTA end-card), varies the layout, and prints per-slide content skeletons + build/batch-render commands.
+- **2 new templates (8 total):** `carousel-cover` (pure hook + counter + swipe cue) and `cta-endcard` (one big follow/save CTA).
+- +6 motifs (extrude-3d, iso-tile, clay, noise-gradient, papercut-shadow, duotone) with copy-paste CSS in the Motif Cookbook.
+
 ## [1.1.0] — 2026-06-14
 ### Added — the Variety Engine (every post a different look, never the same AI vibe)
 - `data/directions.json` — **24 distinct aesthetic directions** (editorial-vintage, bold-grotesk-grid, blueprint-diagram, sticker-doodle, poster-bold, swiss, neo-brutalism, glass-aurora, dark-luxe, neon-cyber, riso-print, memphis, y2k-chrome, vaporwave, magazine, kinetic-type, gradient-mesh, organic, art-deco, collage, mono-terminal, minimal-photo, bauhaus, corporate-clean).
