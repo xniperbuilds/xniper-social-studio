@@ -209,5 +209,73 @@ mark{background:linear-gradient(180deg,transparent 8%, color-mix(in srgb,var(--a
 /* put the <img> inside with mix-blend-mode:luminosity over the accent fill */
 ```
 
+### Additions from the reference study (high-value reusable atoms)
+
+**Callout pin + leader (annotate a screenshot/diagram):**
+```html
+<span class="pin" style="background:var(--accent);color:#fff;border-radius:8px;padding:.4em .8em;font-size:1.6vw;font-weight:700;position:absolute">Always loaded first</span>
+<!-- draw a short SVG arrow from the pin to the target point -->
+<svg style="position:absolute" viewBox="0 0 80 40"><path d="M4 8 C 40 8, 50 30, 74 32" fill="none" stroke="var(--accent)" stroke-width="3"/></svg>
+```
+
+**Keycap chip:**
+```css
+.key{display:inline-flex;background:#1a1a1a;color:#fff;border-radius:8px;padding:.25em .6em;font-family:'Geist Mono',monospace;font-weight:600;box-shadow:0 2px 0 rgba(0,0,0,.4)}
+```
+
+**Mono code-pill:**
+```css
+.codepill{background:#161616;color:#eee;border-radius:16px;padding:1.6vw 2.8vw;font-family:'Geist Mono',monospace;font-size:2.6vw}
+.codepill .arrow{color:var(--accent)}
+```
+
+**'Paste this' prompt box:**
+```css
+.paste{background:color-mix(in srgb,var(--accent) 8%,var(--surface));border:1.5px dashed color-mix(in srgb,var(--accent) 45%,transparent);border-radius:16px;padding:2.4vw;font-family:'Geist Mono',monospace;font-size:1.9vw;line-height:1.5}
+.paste .label{color:var(--accent);font-weight:700;letter-spacing:.1em}
+```
+
+**Device / browser mockup frame:**
+```css
+.phone{border:0.9vw solid #111;border-radius:5vw;overflow:hidden;box-shadow:0 3vw 6vw rgba(0,0,0,.25)}
+.browser{border-radius:14px;overflow:hidden;box-shadow:0 3vw 6vw rgba(0,0,0,.2)}
+.browser .bar{background:#eceef1;padding:1vw;display:flex;gap:.6vw}
+.browser .bar i{width:1.2vw;height:1.2vw;border-radius:50%;background:#d9534f}
+```
+
+**Tweet/X header chrome:**
+```html
+<div style="display:flex;align-items:center;gap:1.4vw">
+  <img src="avatar.jpg" style="width:6vw;height:6vw;border-radius:50%">
+  <div><b style="font-size:2.2vw">Name</b> <span style="color:var(--accent)">✔</span><br><span style="color:var(--muted);font-size:1.9vw">@handle</span></div>
+</div>
+```
+
+**Bottom progress bar:**
+```css
+.progress{position:absolute;left:7vw;right:7vw;bottom:5vw;height:.5vw;background:color-mix(in srgb,var(--text) 12%,transparent);border-radius:4px}
+.progress::after{content:"";position:absolute;left:0;top:0;height:100%;width:60%;background:var(--accent);border-radius:4px}
+```
+
+**Taped lead-magnet card:**
+```css
+.taped{position:relative;background:#fff;border-radius:14px;padding:2.4vw;box-shadow:0 1.5vw 3vw rgba(0,0,0,.15)}
+.taped::before,.taped::after{content:"";position:absolute;top:-1.6vw;width:14vw;height:3.2vw;background:color-mix(in srgb,var(--accent) 30%,transparent);transform:rotate(-5deg)}
+.taped::before{left:8%}.taped::after{right:8%;transform:rotate(5deg)}
+```
+
+**App-UI card overlay (over a real photo):**
+```css
+.uicard{background:#fff;border-radius:24px;padding:3vw;box-shadow:0 3vw 8vw rgba(0,0,0,.3)}
+.uicard .top{display:flex;justify-content:space-between;color:var(--accent);font-weight:700;margin-bottom:2vw}
+```
+
+**Halftone photo (dithered B&W):**
+```css
+.halftone-img{filter:grayscale(1) contrast(1.4) brightness(1.05)}
+.halftone-mask{background:radial-gradient(#000 32%,transparent 33%) 0 0/7px 7px;mix-blend-mode:screen;position:absolute;inset:0}
+/* or pre-process the photo to a halftone PNG and place full-bleed */
+```
+
 > Put the grain/glow/mesh layers behind content (`z-index` below the text), keep
 > text contrast ≥ 4.5:1, and respect the safe zones in `platforms.md`.

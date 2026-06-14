@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.3.0"
+  version: "1.4.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -28,8 +28,8 @@ ship it. If it looks like a default AI template, throw it out and redo it.**
 
 **Variety is the product.** Two posts must never look like the same template with
 the words swapped. Before building, sample a distinct *aesthetic direction* from
-the library (`data/directions.json` via `scripts/ideate.py`) — 32 directions ×
-24 palettes × 19 font pairings × layouts × motifs = tens of thousands of looks.
+the library (`data/directions.json` via `scripts/ideate.py`) — 37 directions ×
+27 categories × 24 palettes × 37 font pairings × layouts × motifs = hundreds of thousands of looks.
 **Never reuse the same direction two posts in a row.**
 
 ---
@@ -97,17 +97,17 @@ Sample distinct aesthetic directions and commit to ONE (different from your last
 ```bash
 python "$SKILL/scripts/ideate.py" "<brief>" -n 6     # 6 distinct directions, fresh each run
 python "$SKILL/scripts/ideate.py" "<brief>" --direction riso-print   # lock a look, vary the rest
-python "$SKILL/scripts/ideate.py" --list-categories                  # 24 purpose categories
+python "$SKILL/scripts/ideate.py" --list-categories                  # 27 purpose categories
 python "$SKILL/scripts/ideate.py" "<brief>" --category comparison-vs # ideas that fit a purpose
 ```
 
-Pick by **purpose** as well as look: a template = **category × direction × role (cover/content/recap/cta)**. `data/categories.json` = 24 purpose categories; `reference/carousel-systems.md` = what top creators actually do (persistent chrome, the role arc, icon+keyword atoms, proof devices, engagement mechanics).
+Pick by **purpose** as well as look: a template = **category × direction × role (cover/content/recap/cta)**. `data/categories.json` = 27 purpose categories; `reference/carousel-systems.md` = what top creators actually do (persistent chrome, the role arc, icon+keyword atoms, proof devices, engagement mechanics).
 
 Then one line, out loud, before any HTML:
 
 > *"Reading this as a `<format>` for `<audience>` in the **`<direction>`** direction — `<palette>` palette, `<display font>` / `<body font>`, `<layout>`, with `<motifs>`."*
 
-`data/directions.json` = 32 movements; `reference/directions.md` = how to build each + the **Motif Cookbook** (grain, highlighter, sketch-underline, connector-dots, glass, clay, 3D, etc.). Commit fully and execute with precision.
+`data/directions.json` = 37 movements; `reference/directions.md` = how to build each + the **Motif Cookbook** (grain, highlighter, sketch-underline, connector-dots, glass, clay, 3D, etc.). Commit fully and execute with precision.
 
 ## Step 3 — Pull the design system
 
@@ -261,12 +261,12 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 |---|---|
 | `reference/platforms.md` | Every size + safe zones, per platform/format |
 | `reference/design-rules.md` | The full premium / anti-slop ruleset |
-| `reference/directions.md` | 32 aesthetic directions + Motif Cookbook (how to build each) |
+| `reference/directions.md` | 37 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/carousel-systems.md` | What top creators do: chrome, role arc, content atoms, proof, engagement |
 | `reference/recipes.md` | Layout blueprints per post archetype |
 | `reference/copywriting.md` | Hook, headline & CTA formulas |
-| `data/directions.json` | 32 aesthetic directions — the variety engine |
-| `data/categories.json` | 24 purpose categories (template = category × direction × role) |
+| `data/directions.json` | 37 aesthetic directions — the variety engine |
+| `data/categories.json` | 27 purpose categories (template = category × direction × role) |
 | `data/palettes.json` | 24 curated premium palettes (mood/industry tagged) |
 | `data/fonts.json` | 19 Google-Font display+body pairings |
 | `data/motifs.json` | Decorative motif index (snippets in directions.md) |

@@ -2,6 +2,12 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.4.0] — 2026-06-14
+### Added — learnings from studying all ~180 reference carousels (25 creators)
+- **+5 aesthetic directions (37 total):** halftone-photo, authentic-lifestyle (real photos + UI-card overlays), editorial-accent (serif + one accent clause + brush underline + screenshots), kraft-bold (kraft paper + taped lead-magnet cards), tweet-clean (X-header chrome + mono code-pills + flow diagrams + progress bar).
+- **+3 purpose categories (27 total):** index-contents, cheatsheet (keycaps/shortcuts), lead-magnet (comment-for-PDF).
+- **+20 motifs** with cookbook CSS for the high-value ones: callout-pin (annotate screenshots), keycap, code-pill, prompt-paste-box, ui-card-overlay, tweet-header, progress-bar, device-mockup frame, taped-card, halftone, number-badge, meta-pill/meta-line, brush-underline, dashed-caption, spiral-binding, dotted-leader, app-icon-sticker, wordmark-bleed, ghost-number, icon-card-flow, photo-collage.
+
 ## [1.3.0] — 2026-06-14
 ### Added — purpose taxonomy + reference-grounded systems (master-plan phase 1)
 - **`data/categories.json` — 24 purpose categories** (hook-cover, listicle, feature-grid, step-by-step, comparison-vs, stat-number, benchmark-leaderboard, before-after, diagram-explainer, quote-statement, checklist, testimonial, announcement, promo-offer, value-prop, product-showcase, profile-intro, myth-bust, definition, timeline, recipe-card, faq-qa, tool-roundup, cta-outro). A template = **category × direction × role**.

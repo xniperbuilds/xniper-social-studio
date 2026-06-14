@@ -416,6 +416,71 @@
       "motifs": ["dot-grid", "highlighter", "doodle-arrow", "sketch-underline", "handwritten-accent"],
       "layout": "Title + hand-annotated points with circled/underlined keywords.",
       "avoid": "Sterile corporate polish, gradients, glossy depth."
+    },
+    {
+      "id": "halftone-photo",
+      "name": "Halftone Photo",
+      "tags": ["photo", "editorial", "retro", "print", "bold", "mono"],
+      "vibe": "A photo rendered as a black-and-white halftone/dithered dot pattern, bold grotesk type laid over it — tactile, print-zine, high-taste.",
+      "type": "Heavy grotesk, white or single-accent; one word larger.",
+      "bg": "Full-bleed halftone/dithered B&W photo; optional one accent pop.",
+      "example_palettes": ["paper-ink", "ice-chrome", "carbon-lime"],
+      "example_fonts": ["archivo-figtree", "bigshoulders-public", "anton-inter"],
+      "motifs": ["halftone-photo", "grain", "big-bg-number"],
+      "layout": "Type pinned over the halftone field; one rounded white content card if needed.",
+      "avoid": "Full-colour photos, soft gradients, glossy 3D — keep it gritty mono."
+    },
+    {
+      "id": "authentic-lifestyle",
+      "name": "Authentic Lifestyle",
+      "tags": ["authentic", "lifestyle", "personal", "casual", "photo", "build-in-public", "creator"],
+      "vibe": "Real desk/selfie photos with app-UI cards (iOS note/reminder/tweet) composited on top and sticker accents — a personal, build-in-public diary feel.",
+      "type": "Friendly rounded grotesk; system-UI font inside the cards.",
+      "bg": "Real photo (desk, hands, laptop) or a photo collage.",
+      "example_palettes": ["paper-ink", "candy-glass", "mint-fresh"],
+      "example_fonts": ["fredoka-dm", "familjen-dm", "archivo-figtree"],
+      "motifs": ["ui-card-overlay", "photo-collage", "sticker-star", "highlighter"],
+      "layout": "Real photo bg + a white app-UI card holding the message; sticker accents.",
+      "avoid": "Over-designed corporate polish, fake stock, heavy vector flatness."
+    },
+    {
+      "id": "editorial-accent",
+      "name": "Editorial Accent (serif + one colour)",
+      "tags": ["editorial", "dev", "storytelling", "serif", "premium", "news"],
+      "vibe": "Luxe serif headline with ONE clause recoloured in the accent + a hand-drawn brush underline; real product screenshots and dashed caption boxes carry proof.",
+      "type": "High-contrast serif headline (one accent-colour clause), clean sans body.",
+      "bg": "Light grid-paper or off-white; restrained.",
+      "example_palettes": ["paper-ink", "cobalt-cream", "ice-chrome"],
+      "example_fonts": ["fraunces-grotesk", "newsreader-inter", "playfair-jakarta"],
+      "motifs": ["brush-underline", "callout-pin", "dashed-caption-box", "device-mockup", "grain"],
+      "layout": "Serif headline + accent clause; real screenshot in a card; dashed caption.",
+      "avoid": "Rainbow accents, flat clip-art, all-caps grotesk (that's a different direction)."
+    },
+    {
+      "id": "kraft-bold",
+      "name": "Kraft Bold",
+      "tags": ["craft", "bold", "editorial", "warm", "poster", "lead-magnet"],
+      "vibe": "Warm kraft/craft-paper field with a huge mixed-weight headline (some words filled, some outline/black) and taped cards — confident, tactile, magazine-poster.",
+      "type": "Heavy grotesk; mix filled + black/white words in one headline.",
+      "bg": "Kraft/terracotta paper with subtle grain.",
+      "example_palettes": ["terracotta-sand", "coral-cream", "paper-ink"],
+      "example_fonts": ["archivo-figtree", "bigshoulders-public", "alfa-work"],
+      "motifs": ["grain", "taped-card", "pagination-dots", "pill-badge"],
+      "layout": "Giant mixed-weight headline top; checklist; a taped file/lead-magnet card.",
+      "avoid": "Cold tech blues, glossy chrome, thin elegant serifs."
+    },
+    {
+      "id": "tweet-clean",
+      "name": "Tweet-Clean Technical",
+      "tags": ["tech", "clean", "dev", "educational", "minimal", "data"],
+      "vibe": "Off-white + one accent, a Twitter/X-style header (avatar+name+verified+handle), mono code-pills and clean flow diagrams in white cards, a bottom progress bar.",
+      "type": "Clean grotesk headline + mono for code/labels; one accent-colour word.",
+      "bg": "Off-white/light; faint grid optional.",
+      "example_palettes": ["paper-ink", "ice-chrome", "ocean-deep"],
+      "example_fonts": ["geist-mono", "sora-mono", "jetbrains-tight"],
+      "motifs": ["tweet-header-chrome", "code-pill", "number-badge", "progress-bar", "callout-pin"],
+      "layout": "Tweet header + number-badge headline + flow diagram card + progress bar.",
+      "avoid": "Heavy decoration, gradients-as-hero, emoji icons; keep it crisp."
     }
   ]
 }
