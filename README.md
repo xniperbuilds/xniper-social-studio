@@ -8,7 +8,7 @@ Most AI design output looks like... AI design output: flat, centered, purple-on-
 
 ## Showcase
 
-A **37-direction variety engine** (27 purpose categories · 24 palettes · 61 font pairings · motif cookbook) plus 37 ready templates — every post a different look. Samples below, each from one brief, rendered straight to PNG:
+A **37-direction variety engine** (27 purpose categories · 24 palettes · 61 font pairings · motif cookbook) plus 47 ready templates — every post a different look. Samples below, each from one brief, rendered straight to PNG:
 
 <p align="center">
   <img src="assets/editorial-vintage-1080x1350.png" width="32%" alt="Editorial vintage direction">

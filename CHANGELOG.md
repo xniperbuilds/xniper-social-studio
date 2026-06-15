@@ -2,6 +2,11 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.8.0] — 2026-06-14
+### Added — template batch 4 (37 → 47): direction-BAKED templates (each a whole aesthetic)
+- `neon-cyber-card` (glow + scanlines + HUD), `glass-aurora-card` (frosted glass over mesh), `memphis-pop` (confetti + squiggle + sticker), `vaporwave-cover` (perspective grid + sun glow), `swiss-grid` (hairline grid + big index), `bauhaus-block` (primary shapes + thick borders), `y2k-chrome` (chrome metallic type + sparkles), `magazine-editorial` (drop cap + columns + pull quote), `mono-terminal` (editor window + caret), `dark-luxe-card` (gold + centered serif statement).
+- Unlike earlier batches (structure-variety), these bake a full visual DIRECTION as the template's default look — so the library now ships many genuinely distinct aesthetics. All rendered/verified.
+
 ## [1.7.0] — 2026-06-14
 ### Fixed — the big one: ASK FIRST + no template-look
 - **SKILL.md now mandates asking the user first** (AskUserQuestion: brand · vibe/theme · platform/format · message · reference) before generating — added as one of "Two laws that override everything", rewritten Step 1, and a Pre-Flight gate. Fixes the complaint that it generated without asking.

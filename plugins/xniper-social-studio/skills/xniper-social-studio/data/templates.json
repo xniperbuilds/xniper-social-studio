@@ -301,6 +301,86 @@
       "use": "Benefit headline + product/mockup zone. Replace .mock with a real screenshot (category: value-prop)",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["value-prop", "benefit", "mockup", "hero", "cover"]
+    },
+    {
+      "id": "neon-cyber-card",
+      "file": "neon-cyber-card.html",
+      "name": "Neon Cyber",
+      "use": "Direction-baked: black + neon glow + scanlines + HUD. Best with a dark neon palette (direction: neon-cyber)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["neon-cyber", "cyber", "statement", "dark", "content"]
+    },
+    {
+      "id": "glass-aurora-card",
+      "file": "glass-aurora-card.html",
+      "name": "Glass Aurora",
+      "use": "Direction-baked: frosted glass panel over aurora mesh. Best with a vibrant gradient palette (direction: glass-aurora)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["glass-aurora", "glass", "feature", "tip", "content"]
+    },
+    {
+      "id": "memphis-pop",
+      "file": "memphis-pop.html",
+      "name": "Memphis Pop",
+      "use": "Direction-baked: pastel + confetti shapes + squiggle + sticker star. Playful (direction: memphis-pop)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["memphis-pop", "playful", "listicle", "fun", "content"]
+    },
+    {
+      "id": "vaporwave-cover",
+      "file": "vaporwave-cover.html",
+      "name": "Vaporwave Cover",
+      "use": "Direction-baked: magenta->cyan gradient + perspective grid + sun glow. Centered statement (direction: vaporwave)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["vaporwave", "retro", "cover", "statement", "cover"]
+    },
+    {
+      "id": "swiss-grid",
+      "file": "swiss-grid.html",
+      "name": "Swiss Grid",
+      "use": "Direction-baked: flat, strict hairline grid, one accent, big index. Minimal (direction: swiss-international)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["swiss-international", "swiss", "minimal", "statement", "content"]
+    },
+    {
+      "id": "bauhaus-block",
+      "file": "bauhaus-block.html",
+      "name": "Bauhaus Block",
+      "use": "Direction-baked: primary geometric shapes + thick borders + grid cells (direction: bauhaus-block)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["bauhaus-block", "geometric", "bold", "statement", "content"]
+    },
+    {
+      "id": "y2k-chrome",
+      "file": "y2k-chrome.html",
+      "name": "Y2K Chrome",
+      "use": "Direction-baked: chrome metallic type + sparkles + blob. Best with a cool/steel palette (direction: y2k-chrome)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["y2k-chrome", "chrome", "retro", "hook", "cover"]
+    },
+    {
+      "id": "magazine-editorial",
+      "file": "magazine-editorial.html",
+      "name": "Magazine Editorial",
+      "use": "Direction-baked: drop cap + two columns + pull quote + hairlines. Best with a serif display (direction: magazine-editorial)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["magazine-editorial", "editorial", "article", "quote", "content"]
+    },
+    {
+      "id": "mono-terminal",
+      "file": "mono-terminal.html",
+      "name": "Mono Terminal",
+      "use": "Direction-baked: editor/terminal window + // comments + caret. Best with a mono font (direction: mono-terminal)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["mono-terminal", "terminal", "dev", "tip", "content"]
+    },
+    {
+      "id": "dark-luxe-card",
+      "file": "dark-luxe-card.html",
+      "name": "Dark Luxe",
+      "use": "Direction-baked: near-black + gold accent + centered serif statement + thin rule. Best with a luxe-dark palette (direction: dark-luxe)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["dark-luxe", "luxury", "quote", "announcement", "cover"]
     }
   ]
 }
