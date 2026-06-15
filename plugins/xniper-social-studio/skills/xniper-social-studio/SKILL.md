@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.9.0"
+  version: "1.10.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -39,7 +39,7 @@ ship it. If it looks like a default AI template, throw it out and redo it.**
 **Variety is the product.** Two posts must never look like the same template with
 the words swapped. Before building, sample a distinct *aesthetic direction* from
 the library (`data/directions.json` via `scripts/ideate.py`) — 37 directions ×
-27 categories × 24 palettes × 61 font pairings × layouts × motifs = hundreds of thousands of looks.
+27 categories × 24 palettes × 90 font pairings × layouts × motifs = millions of looks.
 **Never reuse the same direction two posts in a row.**
 
 ---
@@ -289,7 +289,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `data/directions.json` | 37 aesthetic directions — the variety engine |
 | `data/categories.json` | 27 purpose categories (template = category × direction × role) |
 | `data/palettes.json` | 24 curated premium palettes (mood/industry tagged) |
-| `data/fonts.json` | 61 Google-Font display+body pairings |
+| `data/fonts.json` | 90 Google-Font display+body pairings |
 | `data/motifs.json` | Decorative motif index (snippets in directions.md) |
 | `data/templates.json` | Template registry (id → file, format, use) |
 | `data/hooks.json` | Viral hook library by category |

@@ -8,7 +8,7 @@ Most AI design output looks like... AI design output: flat, centered, purple-on-
 
 ## Showcase
 
-A **37-direction variety engine** (27 purpose categories · 24 palettes · 61 font pairings · motif cookbook) plus 57 ready templates — every post a different look. Samples below, each from one brief, rendered straight to PNG:
+A **37-direction variety engine** (27 purpose categories · 24 palettes · 90 font pairings · motif cookbook) plus 57 ready templates — every post a different look. Samples below, each from one brief, rendered straight to PNG:
 
 <p align="center">
   <img src="assets/editorial-vintage-1080x1350.png" width="32%" alt="Editorial vintage direction">
@@ -23,7 +23,7 @@ A **37-direction variety engine** (27 purpose categories · 24 palettes · 61 fo
 
 ## What it does
 
-- **A variety engine, not a template.** 37 aesthetic *directions* × 27 *purpose categories* × 24 palettes × 61 font pairings × layouts × motifs — `ideate.py` samples fresh combinations so two posts never look alike. A template = **category × direction × role**. `--carousel N` plans a whole set; `--category` / `--list-categories` work by purpose. Grounded in studying real top-creator carousels (see `reference/carousel-systems.md`).
+- **A variety engine, not a template.** 37 aesthetic *directions* × 27 *purpose categories* × 24 palettes × 90 font pairings × layouts × motifs — `ideate.py` samples fresh combinations so two posts never look alike. A template = **category × direction × role**. `--carousel N` plans a whole set; `--category` / `--list-categories` work by purpose. Grounded in studying real top-creator carousels (see `reference/carousel-systems.md`).
 - **Brief → PNG pipeline.** You describe the post; it picks a direction + palette + font pairing + layout, builds real HTML/CSS, and renders it to an exact-size PNG (2× / retina-crisp).
 - **Premium by default.** A baked-in anti-slop ruleset: distinctive type, one locked accent, real depth (gradient mesh, grain, glow, layered shapes), brutal hierarchy. No generic templates.
 - **Every platform & format.** Exact pixel sizes and safe zones for feed posts, portraits, stories, reel covers, carousels, thumbnails and pins.

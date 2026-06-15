@@ -2,6 +2,12 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.10.0] — 2026-06-14
+### Added
+- **+29 font pairings (61 → 90):** Zilla Slab, Dela Gothic One, Shrikhand, Lobster Two, Piazzolla, Rozha One, Jost, Outfit, Hepta Slab, Fjalla One, Teko, Paytone One, Luckiest Guy, Titan One, Shadows Into Light, Amatic SC, Cinzel, Unica One, Michroma, Bungee Shade, Silkscreen, Martian Mono, Besley, Crimson Pro, Anybody, Syncopate, Major Mono Display, Kanit, Saira Condensed — covering slab, gothic, script, pixel, mono, deco, condensed, expanded and display families.
+### Fixed
+- Synced plugin.json version (was lagging at 1.7.0) with marketplace/SKILL.
+
 ## [1.9.0] — 2026-06-14
 ### Added — template batch 5 (47 → 57): the remaining direction-baked aesthetics
 - `riso-print` (halftone + 2-ink overprint), `claymorphism` (puffy clay cards), `depth-3d` (extruded layered type), `isometric` (iso grid + 2.5D cubes), `paper-craft` (layered cut-paper), `organic-natural` (soft blob + serif), `art-deco` (gold frame + sunburst), `collage-cutout` (torn paper + tape + ransom type), `sketch-notebook` (dot-paper + marker + hand-drawn circle/arrow), `grain-gradient` (duotone gradient + heavy grain). All rendered/verified — every one a distinct visual world.
