@@ -2,6 +2,10 @@
 
 All notable changes to Xniper Social Studio.
 
+## [1.9.0] — 2026-06-14
+### Added — template batch 5 (47 → 57): the remaining direction-baked aesthetics
+- `riso-print` (halftone + 2-ink overprint), `claymorphism` (puffy clay cards), `depth-3d` (extruded layered type), `isometric` (iso grid + 2.5D cubes), `paper-craft` (layered cut-paper), `organic-natural` (soft blob + serif), `art-deco` (gold frame + sunburst), `collage-cutout` (torn paper + tape + ransom type), `sketch-notebook` (dot-paper + marker + hand-drawn circle/arrow), `grain-gradient` (duotone gradient + heavy grain). All rendered/verified — every one a distinct visual world.
+
 ## [1.8.0] — 2026-06-14
 ### Added — template batch 4 (37 → 47): direction-BAKED templates (each a whole aesthetic)
 - `neon-cyber-card` (glow + scanlines + HUD), `glass-aurora-card` (frosted glass over mesh), `memphis-pop` (confetti + squiggle + sticker), `vaporwave-cover` (perspective grid + sun glow), `swiss-grid` (hairline grid + big index), `bauhaus-block` (primary shapes + thick borders), `y2k-chrome` (chrome metallic type + sparkles), `magazine-editorial` (drop cap + columns + pull quote), `mono-terminal` (editor window + caret), `dark-luxe-card` (gold + centered serif statement).

@@ -381,6 +381,86 @@
       "use": "Direction-baked: near-black + gold accent + centered serif statement + thin rule. Best with a luxe-dark palette (direction: dark-luxe)",
       "best_formats": ["1080x1350", "1080x1080"],
       "tags": ["dark-luxe", "luxury", "quote", "announcement", "cover"]
+    },
+    {
+      "id": "riso-print",
+      "file": "riso-print.html",
+      "name": "Riso Print",
+      "use": "Direction-baked: paper + halftone + 2-ink overprint offset + heavy grain. Best with a warm palette (direction: riso-print)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["riso-print", "retro", "print", "statement", "content"]
+    },
+    {
+      "id": "claymorphism",
+      "file": "claymorphism.html",
+      "name": "Claymorphism",
+      "use": "Direction-baked: soft pastel + puffy clay cards (inset+outset shadow). Best with a pastel palette + rounded font (direction: claymorphism)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["claymorphism", "playful", "app", "soft", "content"]
+    },
+    {
+      "id": "depth-3d",
+      "file": "depth-3d.html",
+      "name": "3D Depth",
+      "use": "Direction-baked: extruded layered type + deep stacked shadow (direction: 3d-depth)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["3d-depth", "bold", "poster", "statement", "cover"]
+    },
+    {
+      "id": "isometric",
+      "file": "isometric.html",
+      "name": "Isometric",
+      "use": "Direction-baked: faint iso grid + 2.5D cube motif. Technical-friendly (direction: isometric)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["isometric", "tech", "explainer", "saas", "content"]
+    },
+    {
+      "id": "paper-craft",
+      "file": "paper-craft.html",
+      "name": "Paper Craft",
+      "use": "Direction-baked: layered cut-paper shapes + soft shadows framing a card. Best with a warm palette (direction: paper-craft)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["paper-craft", "craft", "warm", "statement", "content"]
+    },
+    {
+      "id": "organic-natural",
+      "file": "organic-natural.html",
+      "name": "Organic Natural",
+      "use": "Direction-baked: big soft blob + earthy + soft serif. Calm, human. Best with a serif font (direction: organic-natural)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["organic-natural", "wellness", "calm", "quote", "content"]
+    },
+    {
+      "id": "art-deco",
+      "file": "art-deco.html",
+      "name": "Art Deco",
+      "use": "Direction-baked: gold linework frame + sunburst + symmetric serif caps. Best with dark+gold palette + serif (direction: art-deco)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["art-deco", "luxury", "elegant", "quote", "cover"]
+    },
+    {
+      "id": "collage-cutout",
+      "file": "collage-cutout.html",
+      "name": "Collage Cutout",
+      "use": "Direction-baked: torn-paper scraps + tape + halftone + ransom-note type. HEADLINE is the one big word; edit scraps (direction: collage-cutout)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["collage-cutout", "collage", "bold", "statement", "cover"]
+    },
+    {
+      "id": "sketch-notebook",
+      "file": "sketch-notebook.html",
+      "name": "Sketch Notebook",
+      "use": "Direction-baked: dot-grid paper + marker headline + hand-drawn circle/arrow. Best with a handwritten/marker font (direction: sketch-notebook)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["sketch-notebook", "educational", "doodle", "tip", "content"]
+    },
+    {
+      "id": "grain-gradient",
+      "file": "grain-gradient.html",
+      "name": "Grain Gradient",
+      "use": "Direction-baked: bold duotone gradient + heavy grain + edge-pinned type. Album/poster (direction: grain-gradient)",
+      "best_formats": ["1080x1350", "1080x1080"],
+      "tags": ["grain-gradient", "poster", "music", "bold", "cover"]
     }
   ]
 }
