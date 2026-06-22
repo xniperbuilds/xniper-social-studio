@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.12.0"
+  version: "1.13.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -245,6 +245,18 @@ dimension (focal hierarchy · composition · legibility · direction commitment)
 passes and no dimension is below "good." For a carousel, run the full loop on the
 cover, then spot-check the rest against the same rubric.
 
+Back the visual judgment with the **measured pass** — `scripts/qa.py` catches what
+the eye misses (off-by-px size, heavy file, content in the safe-zone band, a
+flat-fill background, an over-dominant accent):
+
+```bash
+python "$SKILL/scripts/qa.py" out/slide-1.png --size 1080x1350 --platform post
+python "$SKILL/scripts/qa.py" out/exports/ --batch --size 1080x1350   # whole carousel
+```
+
+Fix every `⚠`, re-render, re-run qa, then do the visual critique. qa is structural;
+it can't read text, so true text/bg contrast still comes from `colorkit.py` + the eye.
+
 Never hand over an unrendered HTML file, and never hand over render 1 — the
 **critiqued, re-rendered PNG** is the deliverable.
 
@@ -358,6 +370,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `scripts/imagegen.py` | Optional AI imagery via Gemini (auto key-save, graceful fallback) |
 | `scripts/colorkit.py` | One brand hex → balanced palette + ramp + harmonies + WCAG |
 | `scripts/typeset.py` | Copy → correct typography (curly quotes, dashes, widow-proof) |
+| `scripts/qa.py` | Measured QA on the PNG: size, file weight, safe-zone, flatness, accent |
 
 ---
 
@@ -365,6 +378,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 
 - [ ] You ASKED the user first (brand · vibe · format · message) — not guessed
 - [ ] You ran the critique loop: VIEWED the PNG, scored the rubric, refined ≥1 pass (not render 1)
+- [ ] `scripts/qa.py` run on the PNG and every `⚠` fixed (size, file weight, safe-zone, flatness, accent)
 - [ ] Does NOT look like a filled template: committed to a sampled direction + a chosen palette/font + ≥2 motifs + a layout adapted to the content
 - [ ] Renders at the exact target pixels, nothing cut off
 - [ ] One clear focal point; headline readable at thumbnail (30%) size
