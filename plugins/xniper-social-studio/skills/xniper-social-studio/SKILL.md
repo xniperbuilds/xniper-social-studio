@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.14.0"
+  version: "1.15.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -53,7 +53,11 @@ USE IT when the task is to create a *static social graphic*:
 - Stat / data cards, testimonials, before→after, "swipe" hooks
 - YouTube thumbnails, Pinterest pins, LinkedIn/X link cards
 
-SKIP IT for: video/motion, full websites or app UIs (use `frontend-design` /
+Also does **short motion** — animated Reel/story covers, kinetic type, stat
+count-ups, looping gradients — via CSS `@keyframes` → GIF/MP4/WebM
+(`scripts/animate.py`, see `reference/motion.md`). Not for full edited video.
+
+SKIP IT for: full edited video, full websites or app UIs (use `frontend-design` /
 `ui-ux-pro-max`), logo/brand-identity systems (use `design`), printing with
 bleed/CMYK, or actually posting/scheduling to a platform.
 
@@ -346,6 +350,24 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 
 ---
 
+## Motion (animated covers, stories, kinetic type)
+
+When the user wants movement — a Reel/story cover, kinetic type, a stat count-up,
+a drifting gradient — build the page with normal CSS `@keyframes`, then export:
+
+```bash
+python "$SKILL/scripts/animate.py" out/cover.html --size 1080x1920 --duration 3 --fps 24 --out out/cover.gif
+python "$SKILL/scripts/animate.py" out/cover.html --duration 2.5 --mp4 --webm --out out/cover.gif
+```
+
+GIF always exports (Pillow); **MP4/WebM only if `ffmpeg` is installed** (else
+skipped with a note — GIF still ships). Frames are scrubbed deterministically.
+**The final hold frame must pass the static bar** — render it and run the critique
+loop + `qa.py` on it. Durations, easing, stagger, and seamless-loop rules are in
+**`reference/motion.md`**.
+
+---
+
 ## Resources in this skill
 
 | Path | What |
@@ -355,6 +377,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `reference/art-direction.md` | The critique & refine loop — pro rubric + AI-tells kill-list (Step 6) |
 | `reference/assets.md` | Real assets: brand logos, textures, photo treatments, optional AI imagery |
 | `reference/typography.md` | Type polish: balance/widows, optical tracking, ligatures, small-caps |
+| `reference/motion.md` | Motion: durations/easing/stagger/loops for animated covers |
 | `reference/directions.md` | 37 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/carousel-systems.md` | What top creators do: chrome, role arc, content atoms, proof, engagement |
 | `reference/recipes.md` | Layout blueprints per post archetype |
@@ -377,6 +400,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `scripts/typeset.py` | Copy → correct typography (curly quotes, dashes, widow-proof) |
 | `scripts/qa.py` | Measured QA on the PNG: size, file weight, safe-zone, flatness, accent |
 | `scripts/brandkit.py` | Save a brand once (palette/font/handle/logo) → reuse across posts |
+| `scripts/animate.py` | CSS-animated HTML → GIF / MP4 / WebM (motion covers, kinetic type) |
 
 ---
 
