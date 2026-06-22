@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.13.0"
+  version: "1.14.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -95,7 +95,12 @@ Even if part of this is in the brief, confirm the rest:
 
 - **Platform & format** — IG post / story / carousel / thumbnail / pin… (→ exact px)
 - **Brand** — their colours / font / logo / @handle; OR a preset
-  (`data/brand-presets.json`); OR "none — propose one for me". Never invent a brand silently.
+  (`data/brand-presets.json`); OR a brand they **saved before** (`scripts/brandkit.py list`);
+  OR "none — propose one for me". Never invent a brand silently. When they give a
+  brand, **offer to save it** so future posts stay consistent and you don't re-ask:
+  `python "$SKILL/scripts/brandkit.py" save <name> --hex <#hex> --font <id> --handle @x --logo <slug>`
+  (one hex derives a full balanced palette; stored locally). Reuse next time with
+  `brandkit.py get <name> --json` → merge into `content.json`.
 - **Vibe / theme** — the aesthetic. Offer concrete named options from `ideate.py`
   (e.g. bold-grotesk · editorial-vintage · dark-luxe · neo-brutalism · glass-aurora ·
   kraft-bold · neon-cyber · minimal-photo · y2k-chrome) and let them pick or say "you choose".
@@ -371,6 +376,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `scripts/colorkit.py` | One brand hex → balanced palette + ramp + harmonies + WCAG |
 | `scripts/typeset.py` | Copy → correct typography (curly quotes, dashes, widow-proof) |
 | `scripts/qa.py` | Measured QA on the PNG: size, file weight, safe-zone, flatness, accent |
+| `scripts/brandkit.py` | Save a brand once (palette/font/handle/logo) → reuse across posts |
 
 ---
 
