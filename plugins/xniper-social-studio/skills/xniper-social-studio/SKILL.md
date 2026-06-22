@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.11.0"
+  version: "1.12.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -197,6 +197,24 @@ python "$SKILL/scripts/imagegen.py" --save-key <KEY>        # store once, local 
 python "$SKILL/scripts/imagegen.py" "<prompt>" --ar 4:5 --out out/bg.png
 ```
 
+**Derive the color system from one brand hex** (`reference/typography.md` for type;
+`colorkit.py` for color) — balanced ramp + palette + WCAG check, not a flat guess:
+
+```bash
+python "$SKILL/scripts/colorkit.py" "#e94560"            # full system + contrast report
+python "$SKILL/scripts/colorkit.py" "#e94560" --json     # palette object → content.json
+```
+
+**Fix the copy typography before it goes in** — straight quotes / `--` / `...` are
+amateur tells:
+
+```bash
+python "$SKILL/scripts/typeset.py" --text "<headline>" --nbsp   # curly quotes, dashes, widow-proof
+```
+
+Then apply the CSS type polish (`text-wrap: balance`, optical tracking by size,
+tabular figures, true small-caps) from `reference/typography.md`.
+
 ## Step 5 — Render to PNG
 
 ```bash
@@ -319,6 +337,7 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `reference/design-rules.md` | The full premium / anti-slop ruleset |
 | `reference/art-direction.md` | The critique & refine loop — pro rubric + AI-tells kill-list (Step 6) |
 | `reference/assets.md` | Real assets: brand logos, textures, photo treatments, optional AI imagery |
+| `reference/typography.md` | Type polish: balance/widows, optical tracking, ligatures, small-caps |
 | `reference/directions.md` | 37 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/carousel-systems.md` | What top creators do: chrome, role arc, content atoms, proof, engagement |
 | `reference/recipes.md` | Layout blueprints per post archetype |
@@ -337,6 +356,8 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `scripts/render.py` | HTML → exact-size PNG (Playwright) |
 | `scripts/assets.py` | Brand logos (Simple Icons) + texture/mesh/grain layers (offline) |
 | `scripts/imagegen.py` | Optional AI imagery via Gemini (auto key-save, graceful fallback) |
+| `scripts/colorkit.py` | One brand hex → balanced palette + ramp + harmonies + WCAG |
+| `scripts/typeset.py` | Copy → correct typography (curly quotes, dashes, widow-proof) |
 
 ---
 
@@ -348,6 +369,8 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 - [ ] Renders at the exact target pixels, nothing cut off
 - [ ] One clear focal point; headline readable at thumbnail (30%) size
 - [ ] Display font is distinctive (not Arial/Inter/Roboto/system)
+- [ ] Type polished: curly quotes/real dashes (no " ' -- ...), no widows, tracking tuned by size (`typeset.py` + `reference/typography.md`)
+- [ ] Color derived/balanced (one accent ≤~15%, hue-tinted shadows, AA contrast — `colorkit.py`)
 - [ ] The web display font actually rendered — not a system fallback
 - [ ] Single locked accent; no stray off-palette color
 - [ ] Has depth — gradient/grain/glow/shape/large type, not a flat fill
