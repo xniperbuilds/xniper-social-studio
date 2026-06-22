@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.15.0"
+  version: "1.15.1"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG

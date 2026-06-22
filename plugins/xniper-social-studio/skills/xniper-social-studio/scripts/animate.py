@@ -121,6 +121,8 @@ def build_video(frames_dir, fps, out, vcodec, pix=None):
               f"MP4/WebM (GIF already exported). https://ffmpeg.org/download.html", file=sys.stderr)
         return False
     cmd = [ff, "-y", "-framerate", str(fps), "-i", str(frames_dir / "frame_%04d.png"),
+           # round W/H down to even — H.264/yuv420p rejects odd dimensions
+           "-vf", "scale=trunc(iw/2)*2:trunc(ih/2)*2",
            "-c:v", vcodec]
     if pix:
         cmd += ["-pix_fmt", pix]
