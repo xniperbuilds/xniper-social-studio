@@ -19,6 +19,11 @@ _test/
 test-results/
 playwright-report/
 
+# Secrets — API keys live in ~/.config, never the repo; belt-and-braces:
+*.key
+gemini.key
+.env
+
 # OS
 .DS_Store
 Thumbs.db

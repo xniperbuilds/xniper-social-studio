@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.10.0"
+  version: "1.11.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -67,7 +67,7 @@ bleed/CMYK, or actually posting/scheduling to a platform.
 3. PULL the system  →  scripts/search.py  (palette + font pairing + template + hook)
 4. BUILD HTML       →  fill a template AND push it to the direction (motifs), or hand-build
 5. RENDER PNG       →  scripts/render.py  (exact px, 2x, awaits fonts)
-6. QA + iterate     →  open the PNG, check the Pre-Flight list, fix, re-render
+6. CRITIQUE + REFINE →  VIEW the PNG, score it vs the art-director rubric, fix, re-render (≥1 pass; never hand off render 1)
 ```
 
 Tools live beside this file. Resolve paths from the skill directory (the folder
@@ -177,6 +177,26 @@ pixels, inline all CSS, load fonts from Google Fonts CDN, and obey
 `reference/design-rules.md`. Read `reference/recipes.md` for per-archetype
 blueprints (cover, tip-stack, stat, testimonial, before/after, CTA end-card).
 
+**Layer real assets, not flat fills** (`reference/assets.md`). Pull real brand
+logos (never emoji) and generate texture/mesh layers — no API key:
+
+```bash
+python "$SKILL/scripts/assets.py" icon instagram --color FFFFFF --out out/ig.svg
+python "$SKILL/scripts/assets.py" texture mesh --size 1080x1350 --colors 1a1a2e,e94560,0f3460 --out out/mesh.png
+python "$SKILL/scripts/assets.py" texture grain --size 1080x1350 --opacity 14 --out out/grain.png
+```
+
+**Optional AI imagery (Gemini)** — only when a design truly needs generated
+visuals. The skill **OFFERS** it; if the user wants it they paste their key once
+and the skill saves it locally (gitignored) — no env-var editing, graceful CSS
+fallback if absent. See `reference/assets.md` §4.
+
+```bash
+python "$SKILL/scripts/imagegen.py" --check                 # SDK + key present?
+python "$SKILL/scripts/imagegen.py" --save-key <KEY>        # store once, local only
+python "$SKILL/scripts/imagegen.py" "<prompt>" --ar 4:5 --out out/bg.png
+```
+
 ## Step 5 — Render to PNG
 
 ```bash
@@ -189,11 +209,26 @@ Renders at `deviceScaleFactor: 2` (crisp), hides scrollbars, and waits for fonts
 + images before capture. Filenames may encode size (`name-1080x1350.png`) and
 the batch mode reads it automatically.
 
-## Step 6 — QA, then iterate
+## Step 6 — Critique & refine (the loop that makes it pro)
 
-Open the exported PNG and run the **Pre-Flight Checklist** below. Fix the HTML,
-re-render, re-check. Never hand over an unrendered HTML file as the deliverable —
-the PNG is the deliverable.
+This is the **single biggest quality lever** — and the step generic AI skips. A
+generic tool ships render 1. You do not. **Read the exported PNG as an image** (not
+the HTML in your head), score it against the art-director rubric, fix the weakest
+dimensions, and **re-render**. Minimum one refine pass on every deliverable; two+
+on covers/hero slides.
+
+```
+RENDER → VIEW the .png → SCORE each rubric dimension → FIX the 1–3 weakest → RE-RENDER → VIEW again
+```
+
+The rubric, the AI-tells kill-list, and a worked verdict live in
+**`reference/art-direction.md`** — follow it. Stop only when every CRITICAL
+dimension (focal hierarchy · composition · legibility · direction commitment)
+passes and no dimension is below "good." For a carousel, run the full loop on the
+cover, then spot-check the rest against the same rubric.
+
+Never hand over an unrendered HTML file, and never hand over render 1 — the
+**critiqued, re-rendered PNG** is the deliverable.
 
 ---
 
@@ -282,6 +317,8 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 |---|---|
 | `reference/platforms.md` | Every size + safe zones, per platform/format |
 | `reference/design-rules.md` | The full premium / anti-slop ruleset |
+| `reference/art-direction.md` | The critique & refine loop — pro rubric + AI-tells kill-list (Step 6) |
+| `reference/assets.md` | Real assets: brand logos, textures, photo treatments, optional AI imagery |
 | `reference/directions.md` | 37 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/carousel-systems.md` | What top creators do: chrome, role arc, content atoms, proof, engagement |
 | `reference/recipes.md` | Layout blueprints per post archetype |
@@ -298,12 +335,15 @@ Generate each slide as its own HTML, render the folder with `--batch`.
 | `scripts/search.py` | Recommend / search the design system |
 | `scripts/new_post.py` | Fill a template with content + brand → HTML |
 | `scripts/render.py` | HTML → exact-size PNG (Playwright) |
+| `scripts/assets.py` | Brand logos (Simple Icons) + texture/mesh/grain layers (offline) |
+| `scripts/imagegen.py` | Optional AI imagery via Gemini (auto key-save, graceful fallback) |
 
 ---
 
 ## Pre-Flight Checklist (run on every exported PNG)
 
 - [ ] You ASKED the user first (brand · vibe · format · message) — not guessed
+- [ ] You ran the critique loop: VIEWED the PNG, scored the rubric, refined ≥1 pass (not render 1)
 - [ ] Does NOT look like a filled template: committed to a sampled direction + a chosen palette/font + ≥2 motifs + a layout adapted to the content
 - [ ] Renders at the exact target pixels, nothing cut off
 - [ ] One clear focal point; headline readable at thumbnail (30%) size
