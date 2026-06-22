@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.15.1"
+  version: "1.16.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -138,6 +138,30 @@ Then one line, out loud, before any HTML:
 > *"Reading this as a `<format>` for `<audience>` in the **`<direction>`** direction — `<palette>` palette, `<display font>` / `<body font>`, `<layout>`, with `<motifs>`."*
 
 `data/directions.json` = 37 movements; `reference/directions.md` = how to build each + the **Motif Cookbook** (grain, highlighter, sketch-underline, connector-dots, glass, clay, 3D, etc.). Commit fully and execute with precision.
+
+### Scenario routing (fast start by request type)
+
+Map the ask to a sane starting system, then still sample a direction and ASK. This
+is a starting bias, not a lock — variety rules (`ideate.py`) override repetition.
+
+| If the user wants… | Format (px) | Lean directions | Category / flag |
+|---|---|---|---|
+| Quote / quote card | 1080×1350 | editorial-vintage · dark-luxe · minimal-photo | `--category quote` |
+| Product / app / game **launch** | 1080×1350 | bold-grotesk · neon-cyber · y2k-chrome | `--category launch` |
+| **Sale / discount / promo** | 1080×1350 | memphis-pop · y2k-chrome · bold-grotesk | `--category cta` |
+| **Tips / listicle / how-to** | 1080×1350 carousel | swiss-grid · editorial-vintage · mono-terminal | `--carousel N` |
+| **Stat / data** card | 1080×1350 | swiss-grid · dark-luxe · depth-3d | `--category stat` |
+| Testimonial / review | 1080×1350 | editorial-vintage · glass-aurora | `--category testimonial` |
+| Before → after | 1080×1350 | bold-grotesk · swiss-grid | `--category transformation` |
+| **Story / Reel cover** | 1080×1920 | neon-cyber · glass-aurora · dark-luxe | check safe zones; motion optional |
+| YouTube **thumbnail** | 1280×720 | bold-grotesk · y2k-chrome | huge face, 3–4 words |
+| LinkedIn / X link card | 1200×630 | swiss-grid · minimal-photo | restrained, professional |
+| **Animated** cover / kinetic | 1080×1920 | any + `reference/motion.md` | `animate.py` → GIF/MP4 |
+
+Fastest path to a full recipe for any brief:
+`python "$SKILL/scripts/ideate.py" "<brief>" --recommend` — picks one best-fit
+direction and prints the end-to-end pro pipeline (color → copy → depth → build →
+render → qa → critique).
 
 ## Step 3 — Pull the design system
 
@@ -403,6 +427,39 @@ loop + `qa.py` on it. Durations, easing, stagger, and seamless-loop rules are in
 | `scripts/animate.py` | CSS-animated HTML → GIF / MP4 / WebM (motion covers, kinetic type) |
 
 ---
+
+## QA ladder (severity — fix top-down)
+
+Not every issue is equal. Walk this ladder in order; a higher tier blocks handoff,
+a lower tier is polish. `qa.py` measures the structural ones; the rest you VIEW.
+
+**P0 — BLOCKERS (never hand off with these):**
+- Didn't ASK the user first (brand · vibe · format · message).
+- Wrong dimensions / content clipped at the frame.
+- Text fails contrast (unreadable) or critical content outside the safe zone.
+- Looks like a filled template / generic AI (no committed direction, no motif).
+- Handed off render 1 with no critique pass.
+
+**P1 — CRITICAL (fix before it's "done"):**
+- No clear focal point; hierarchy ties; headline not unmissable at 30%.
+- Flat fill, no depth (qa.py flags σ).
+- System/Inter/Roboto doing the display job; display font fell back.
+- Two accents fighting / accent over ~15% coverage.
+- Widows on the headline, straight quotes / `--` / `...` in the copy.
+
+**P2 — IMPORTANT (raises it from fine to pro):**
+- Optical tracking not tuned by size; loose big headline.
+- Shadows pure black instead of bg-tinted; gradient banding.
+- Margins numerically equal but optically uneven; everything centered.
+- Stat numbers not tabular; eyebrow filler.
+
+**P3 — POLISH (the last 5%):**
+- Hanging punctuation, true small-caps, ligatures.
+- A second motif echo; micro-texture; a considered focal accent echo.
+- File weight trimmed for the platform.
+
+Rule: **zero P0 and zero P1** before you export the final. Spend remaining effort
+down the ladder, not re-polishing P3 while a P1 stands.
 
 ## Pre-Flight Checklist (run on every exported PNG)
 

@@ -121,11 +121,74 @@ def carousel_plan(d, palettes, fonts, templates, hooks, q, n, size, rng):
     print("\n  Keep the direction the SAME on every slide; vary the layout. Next carousel: a different direction.")
 
 
+def recommend_one(directions, palettes, fonts, templates, hooks, cat, q, size, rng):
+    """Pick the single best-fit direction for the brief and print a full,
+    end-to-end PRO recipe wiring in colorkit / typeset / assets / qa / critique."""
+    pal_by = {p["id"]: p for p in palettes}
+    font_by = {f["id"]: f for f in fonts}
+    pool = directions[:]
+    if cat:
+        suited = set(cat.get("directions", []))
+        pool = [d for d in directions if d["id"] in suited] or directions[:]
+    if q:
+        pool.sort(key=lambda d: tag_score(d.get("tags", []), q) + rng.random() * 0.5, reverse=True)
+    else:
+        rng.shuffle(pool)
+    d = pool[0]
+    pal = pick(palettes, pal_by, d.get("example_palettes", []), q + d.get("tags", []), rng)
+    fnt = pick(fonts, font_by, d.get("example_fonts", []), q + d.get("tags", []), rng)
+    motifs = d.get("motifs", [])
+    use_motifs = motifs if len(motifs) <= 3 else rng.sample(motifs, 3)
+    hook = (hooks.get(pick_hook_category(q)) or hooks.get("question") or ["{topic}"])
+    hook = rng.choice(hook).replace("{topic}", (" ".join(q) or "your topic"))
+    tmpl = next((t["id"] for t in templates
+                 if set(t.get("tags", [])) & set(d.get("tags", []))), None)
+    topic = " ".join(q) or "your topic"
+    audience = "your audience"
+
+    print("=" * 70)
+    print(f"  RECOMMENDED SYSTEM for: {topic}")
+    print("=" * 70)
+    print(f"\n  Direction : {d['name']} ({d['id']})")
+    print(f"  Palette   : {pal['id']}  (accent {pal['accent']})")
+    print(f"  Font      : {fnt['id']}  ({fnt['name']})")
+    print(f"  Motifs    : {', '.join(use_motifs)}")
+    print(f"  Hook      : {hook}")
+
+    print("\n  DESIGN READ (say this before building — SKILL Step 2):")
+    print(f"  \"Reading this as a {size} for {audience} in the {d['id']} direction —")
+    print(f"   {pal['id']} palette, {fnt['id']} type, {d['layout'].rstrip('. ')}, with "
+          f"{' + '.join(use_motifs[:2]) or 'its signature motifs'}.\"")
+
+    print("\n  PRO PIPELINE (run top→bottom):")
+    print(f"  1. color : python scripts/colorkit.py \"{pal['accent']}\"   "
+          f"# balanced ramp + WCAG (or feed YOUR brand hex)")
+    print(f"  2. copy  : python scripts/typeset.py --text \"{hook}\" --nbsp  "
+          f"# curly quotes, dashes, widow-proof")
+    print(f"  3. depth : python scripts/assets.py texture mesh --size {size} "
+          f"--colors {pal['bg'].lstrip('#')},{pal['accent'].lstrip('#')} --out out/mesh.png")
+    if tmpl:
+        print(f"  4. build : python scripts/new_post.py --template {tmpl} "
+              f"--palette {pal['id']} --font {fnt['id']} --content content.json "
+              f"--size {size} --out out/post.html")
+    else:
+        print(f"  4. build : hand-build the {d['id']} direction per reference/directions.md "
+              f"(layout: {d['layout']})")
+    print(f"  5. render: python scripts/render.py out/post.html --size {size} --out out/post.png")
+    print(f"  6. qa    : python scripts/qa.py out/post.png --size {size} --platform post")
+    print(f"  7. judge : VIEW out/post.png, score the rubric in reference/art-direction.md, "
+          f"fix the weakest, re-render. Never ship render 1.")
+    print(f"\n  avoid: {d['avoid']}")
+    print(f"  motion? add CSS @keyframes then: python scripts/animate.py out/post.html "
+          f"--size {size} --duration 3 --mp4 --out out/post.gif")
+
+
 def main():
     ap = argparse.ArgumentParser(description="Generate N distinct design directions for a brief")
     ap.add_argument("query", nargs="?", default="", help="brief / topic keywords")
     ap.add_argument("-n", type=int, default=6, help="how many distinct ideas (default 6)")
     ap.add_argument("--carousel", type=int, metavar="SLIDES", help="plan a full carousel of SLIDES slides (one locked direction)")
+    ap.add_argument("--recommend", action="store_true", help="pick ONE best-fit direction + full pro pipeline recipe")
     ap.add_argument("--seed", type=int, help="seed for reproducible output")
     ap.add_argument("--size", default="1080x1350", help="target size WxH")
     ap.add_argument("--direction", help="force a specific direction id (vary everything else)")
@@ -165,6 +228,18 @@ def main():
     if args.category and not cat:
         print(f"ERROR: no category '{args.category}'. Try --list-categories.", file=sys.stderr)
         sys.exit(1)
+
+    # single best-fit recommendation with the full pro pipeline
+    if args.recommend:
+        if args.direction:
+            d = next((x for x in directions if x["id"] == args.direction), None)
+            if d:
+                directions = [d]
+            else:
+                print(f"ERROR: no direction '{args.direction}'.", file=sys.stderr)
+                sys.exit(1)
+        recommend_one(directions, palettes, fonts, templates, hooks, cat, q, args.size, rng)
+        return
 
     # full-carousel plan: one locked direction across the whole set
     if args.carousel:
