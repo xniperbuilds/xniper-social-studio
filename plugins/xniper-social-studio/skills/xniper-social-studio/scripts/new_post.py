@@ -80,7 +80,8 @@ def main():
         if args.content.lstrip().startswith("{"):
             raw, src = args.content, "inline JSON"
         elif Path(args.content).exists():
-            raw, src = Path(args.content).read_text(encoding="utf-8"), args.content
+            # utf-8-sig tolerates a BOM (Windows editors / PowerShell Out-File add one)
+            raw, src = Path(args.content).read_text(encoding="utf-8-sig"), args.content
         else:
             die(f"--content '{args.content}' is neither a file nor JSON")
         try:

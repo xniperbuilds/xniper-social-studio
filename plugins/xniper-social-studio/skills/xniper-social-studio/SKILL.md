@@ -14,7 +14,7 @@ description: >-
 license: MIT
 metadata:
   author: XniperBuilds
-  version: "1.16.0"
+  version: "1.17.0"
 ---
 
 # Xniper Social Studio — Premium Social Graphics, Brief → PNG
@@ -310,9 +310,14 @@ This is what separates this skill from generic output. Full detail in
    cards. No emoji used as icons. No centered-everything. No flat cheap look.
 4. **One locked accent.** Neutral base + a single high-impact accent, used
    consistently. Tint shadows to the background hue — never pure black.
-5. **Depth & atmosphere.** Layer gradient meshes, grain/noise, soft glows,
-   overlapping shapes, large background type. A solid flat fill is a fallback,
-   not a design.
+5. **Depth & real 3D (mandate).** Every design carries genuine depth — never a
+   flat sticker look. Layer gradient meshes, grain/noise, soft glows, overlapping
+   shapes, large background type, AND at least one true **3D move**: an extruded
+   headline, a 3D orb/floating object with a ground shadow, lifted cards (two-shadow
+   rule), clay/glass/neumorphic surfaces, or an isometric scene. Full copy-paste
+   CSS for each + the 5 laws of believable 3D → **`reference/3d.md`**. A solid flat
+   fill is a fallback, not a design; if it reads flat in greyscale, the depth is
+   decoration — fix the shadows.
 6. **Brutal hierarchy.** One focal point. The headline is unmissable. Eye flow
    is obvious in a half-second thumbnail glance.
 7. **Real contrast, real legibility.** Text passes WCAG AA (4.5:1). Test it
@@ -402,6 +407,7 @@ loop + `qa.py` on it. Durations, easing, stagger, and seamless-loop rules are in
 | `reference/assets.md` | Real assets: brand logos, textures, photo treatments, optional AI imagery |
 | `reference/typography.md` | Type polish: balance/widows, optical tracking, ligatures, small-caps |
 | `reference/motion.md` | Motion: durations/easing/stagger/loops for animated covers |
+| `reference/3d.md` | 3D effects cookbook: extrude/iso/clay/glass/neumorph/orb + the 5 laws |
 | `reference/directions.md` | 37 aesthetic directions + Motif Cookbook (how to build each) |
 | `reference/carousel-systems.md` | What top creators do: chrome, role arc, content atoms, proof, engagement |
 | `reference/recipes.md` | Layout blueprints per post archetype |
@@ -474,7 +480,7 @@ down the ladder, not re-polishing P3 while a P1 stands.
 - [ ] Color derived/balanced (one accent ≤~15%, hue-tinted shadows, AA contrast — `colorkit.py`)
 - [ ] The web display font actually rendered — not a system fallback
 - [ ] Single locked accent; no stray off-palette color
-- [ ] Has depth — gradient/grain/glow/shape/large type, not a flat fill
+- [ ] Has depth + a real 3D move (extrude/orb/lifted-card/clay/glass/neumorph/iso) — not a flat fill; reads near-vs-far even in greyscale (`reference/3d.md`)
 - [ ] No AI tells (purple-on-white glow, 3 identical cards, emoji-as-icon)
 - [ ] Text contrast ≥ 4.5:1 everywhere; CTA legible
 - [ ] Critical content inside safe zones (story UI clear)
